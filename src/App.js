@@ -2,13 +2,18 @@ import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
 
 import './App.css';
-import MainPage from './Components/MainPage/MainPage'
+import NavBar from './components/NavBar/NavBar'
+import MainPage from './components/MainPage/MainPage'
 
 function App() {
   return (
-    <Switch>
-      <Route exact path='/' component={MainPage} />
-    </Switch>
+    <>
+      <NavBar />
+      <Switch>
+        <Route exact path='/' component={MainPage} />
+        <Redirect path='*' to='/' />
+      </Switch>
+    </>
   );
 }
 

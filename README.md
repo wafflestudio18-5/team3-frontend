@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# 에브리타임 Toy Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## GitHub 사용 방식
 
-## Available Scripts
+`master`, `develop`, 그리고 그 외 보조 branch들을 사용합니다.
 
-In the project directory, you can run:
+- **`master` -** 큼지막한 업데이트들만 반영됩니다. 업데이트한 후 Tag로 버전을 명시해주세요.
 
-### `yarn start`
+- **`develop` -** 작은 업데이트들을 반영하는 곳입니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **그 외 보조 branch -** 작은 업데이트들을 구현하기 위해 임시로 만들고 작업하는 곳입니다. 예를 들어 게시판의 좋아요 기능 하나를 새로 구현하기 위해 작업한다면, `article-like`라는 브랜치를 새로 만들어 작업하면 됩니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
+## 폴더 구조
 
-### `yarn test`
+```
+src/
+ ├ assets/        - 사이트에 쓰일 이미지 파일 등이 있는 폴더
+ └ components/    - 각 페이지 컴포넌트가 있는 폴더
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* `components/` 내에서는 페이지를 기준으로 폴더를 정리합니다. 예를 들어 메인 페이지를 위한 컴포넌트들은 `components/MainPage/` 폴더 안에 넣습니다.
 
-### `yarn build`
+* 내비게이션 바처럼 여러 페이지에 동시에 존재할 수 있는 컴포넌트들은 `components/NavBar/`처럼 따로 폴더를 만들어 그 안에 정리합니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
+## 코딩 스타일
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. `Prettier - Code formatter` 익스텐션을 이용합니다.
 
-### `yarn eject`
+2. `MaterialUI` 프레임워크를 사용합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. HTML 태그를 사용할 때는 `div`만 사용하기보다는 `nav`, `section`, `article`, `aside` 등을 적절히 사용합니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* 이외 통일할 필요가 있는 코딩 스타일이 있다면 계속 추가해주세요!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
+## 사이트에 대해
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **사이트 제목 -** 미정
+- **클론한 사이트 -** 에브리타임
+- **사이트 설명 -** (미작성)
