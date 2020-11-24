@@ -1,0 +1,29 @@
+.nav-li{
+    margin: 0px 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.logo{
+    float:left;
+    height:100%;
+    padding:15px;
+}
+.nav-wrap{
+    display: fixed;
+    top:0px;
+    height:70px;
+    margin:0px;
+    border-bottom: 1px solid gray;
+}
+
+.header{
+    width: 200px;
+}
+.menu{
+    height:100%;
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin:0 auto;
+    justify-self: center;
+    /* display: flex; */
+}
