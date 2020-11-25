@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Input, Stack, Button, Checkbox, HStack, Text } from "@chakra-ui/react";
-
 const defaultInput = {
   id: "",
   password: "",
