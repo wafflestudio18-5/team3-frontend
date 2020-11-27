@@ -1,0 +1,41 @@
+.aside{
+    float:right;
+    width: 300px;
+    text-align: center;
+    border-left: 1px solid #e3e3e3;
+}
+
+.button{
+    border: 1px solid #e3e3e3;
+    width: 90%;
+    padding: 7px;
+}
+
+.register-btn{
+    background-color: #c62917;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.login-btn{
+    margin-top: 34px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #737373;
+}
+
+.description-font{
+    color: #4c4c4c;
+    font-size: 9px;
+    margin-right: 7px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.login-section{
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 40px;
+}
