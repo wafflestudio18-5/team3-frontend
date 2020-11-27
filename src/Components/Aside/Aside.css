@@ -37,5 +37,16 @@
 
 .login-section{
     border-bottom: 1px solid #e3e3e3;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
+
+}
+.logo-img img{
+    height:40px;
+    width:40px;
+    vertical-align: middle;
+}
+.logo-img{
+    text-align: center;
+    display: inline-block;
+    margin-top: 30px;
 }

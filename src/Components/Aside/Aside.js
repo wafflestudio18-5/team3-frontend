@@ -9,11 +9,12 @@ const Aside = () => {
   return (
     <aside className="aside">
       <div className="login-section">
-        <img
-          src="https://everytime.kr/images/about/logo.png"
-          alt="logo"
-          className="logo-img"
-        ></img>
+        <Link to="/" className="logo-img">
+          <img
+            src="https://everytime.kr/images/about/logo.png"
+            alt="logo"
+          ></img>
+        </Link>
         <Link to="/login">
           <button className="login-btn button">로그인</button>
         </Link>
