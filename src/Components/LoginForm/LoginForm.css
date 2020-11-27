@@ -1,0 +1,15 @@
+
+.small-font{
+    font-size: 13px;
+}
+
+.description-font{
+    color: #a6a6a6;
+    font-size: 16px;
+}
+
+.register-font{
+    color: firebrick;
+    font-size:17px;
+    font-weight: 700;
+}

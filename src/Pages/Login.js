@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Box, Image, Stack } from "@chakra-ui/react";
 
-import LoginForm from "../Components/LoginFom";
+import LoginForm from "../Components/LoginForm/LoginFom";
 import Footer from "../Components/Footer/Footer.js";
 
 const Login = () => {
