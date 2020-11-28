@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Input, Stack, Button, Checkbox, HStack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import "./LoginForm.css";
 
 const defaultInput = {
   id: "",
@@ -29,15 +31,17 @@ export default function LoginForm() {
       <Button colorScheme="red" variant="solid">
         로그인
       </Button>
-      <HStack direction="row" spacing="130px">
+      <HStack direction="row" spacing="145px">
         <Checkbox size="md" colorScheme="blue" defaultIsChecked>
-          로그인 유지
+          <label className="description-font">로그인 유지</label>
         </Checkbox>
-        <span>아이디/비밀번호 찾기</span>
+        <span className="small-font">아이디/비밀번호 찾기</span>
       </HStack>
       <div align="center">
-        <span>에브리타임에 처음이신가요?</span>
-        <span> 회원가입 </span>
+        <span className="description-font">에브리타임에 처음이신가요?</span>
+        <Link to="/register" className="register-font">
+          <span> 회원가입 </span>
+        </Link>
       </div>
     </Stack>
   );

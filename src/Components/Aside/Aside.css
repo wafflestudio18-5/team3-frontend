@@ -1,0 +1,86 @@
+.aside{
+    width: 300px;
+    text-align: center;
+    border-left: 1px solid #e3e3e3;
+    position: fixed;
+    z-index: 9;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    border-left: 1px solid #d6d6d6;
+}
+
+.button{
+    border: 1px solid #e3e3e3;
+    width: 90%;
+    padding: 7px;
+}
+
+.register-btn{
+    background-color: #c62917;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 5px;
+    padding: 9px;
+}
+
+.login-btn{
+    margin-top: 34px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #737373;
+}
+
+.description-font{
+    color: #4c4c4c;
+    font-size: 9px;
+    margin-right: 7px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.login-section{
+    padding-bottom: 30px;
+    position: fixed;
+    z-index: 11;
+    background: white;
+}
+.logo-img img{
+    height:40px;
+    width:40px;
+    vertical-align: middle;
+}
+.logo-img{
+    text-align: center;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.bottom-border{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.campusbox{
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    padding-top:10px;
+    font-weight: 500;
+}
+.search{
+    position:fixed;
+    z-index: 11;
+    top:255px;
+    background: white;
+    width:280px;
+    box-sizing: border-box;
+}
+
+.campus-wrap{
+    z-index: 10;
+    position: relative;
+    top:340px;
+}
