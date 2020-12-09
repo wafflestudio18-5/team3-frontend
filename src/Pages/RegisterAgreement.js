@@ -12,6 +12,18 @@ const RegisterAgreement = () => {
       })
     );
   };
+
+  const onCertificateClick = () => {
+    let isAlert = false;
+    checkAll.forEach((checked, ind) => {
+      if (!checked && ind !== 0) isAlert = true;
+    });
+    if (isAlert) {
+      alert("서비스 이용 약관에 동의해주세요");
+      return;
+    }
+  };
+
   const renderedterms = () => {
     return terms.map((term, index) => {
       return (
@@ -44,7 +56,13 @@ const RegisterAgreement = () => {
         </Checkbox>
         {renderedterms()}
       </Stack>
-      <Button colorScheme="red" variant="solid" width="100%" mb="10px">
+      <Button
+        colorScheme="red"
+        variant="solid"
+        width="100%"
+        mb="10px"
+        onClick={onCertificateClick}
+      >
         휴대폰 인증
       </Button>
       <Button colorScheme="gray" variant="solid" width="100%">
