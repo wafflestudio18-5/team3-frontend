@@ -1,0 +1,134 @@
+.NL1{
+    background-color: #f9f9f9;
+    height:660px;
+    padding-left: 350px;
+    display: relative;
+} 
+
+.NL2{
+    height:400px
+
+} 
+.NL3{
+    background-color: #f9f9f9;
+    height:300px;
+} 
+.NL-box{
+    width:1650px;
+    padding-right:300px;
+    z-index: 0;
+    text-align: center;
+}
+
+
+div.screen {
+    position: relative;
+    z-index: 1;
+    border: 2px solid #d6d6d6;
+    border-bottom: 0;
+    border-radius: 18px 18px 0 0;
+    background-color: #fff;
+    overflow: hidden;
+    width:270px;
+    height:540px;
+    box-sizing: border-box;
+}
+
+div.img{
+    background-size:  840px auto;    
+    position: absolute;
+    background-image:url(https://everytime.kr/images/about/screen.png) ;
+    background-repeat: no-repeat;
+}
+
+.phone{
+    position: absolute;
+    top:120px;
+    box-sizing: border-box;
+}
+
+div.home{
+    top: 0;
+    opacity: 1;
+    width: 270px;
+    height: 540px;
+    background-position: 0px 0px;
+}
+
+div.timetable{
+    top: 0;
+    width: 270px;
+    height: 540px;
+    background-position: -285px 0px;
+    opacity: 0;
+    animation: active-init-timeTable 6s infinite;
+}
+
+div.board{
+    top: 0;
+    width: 270px;
+    height: 540px;
+    background-position: -570px 0px;
+    opacity: 0;
+    animation: active-init-board 6s infinite;
+}
+@keyframes active-init-timeTable {
+    0% {
+        opacity: 0;
+    }
+    
+    26% {
+        opacity: 0;
+    }
+    34% {
+        opacity: 1;
+    }
+    67% {
+        opacity: 1;
+    }
+    68% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes active-init-board {
+    0% {
+        opacity: 0;
+    }
+    
+    59% {
+        opacity: 0;
+    }
+    67% {
+        opacity: 1;
+    }
+    92% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+  
+.NL1-headline{
+    position: absolute;
+    top:250px;
+    left: 800px;
+}
+
+.NL-head-black{
+    color: #292929;
+    line-height: 30px;
+    font-size: 28px;
+}
+
+.NL-head-red{
+    position: relative;
+    line-height: 50px;
+    font-size: 28px;    
+    color: #c62917;
+    text-align: left;
+    font-weight: 800;
+}
