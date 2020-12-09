@@ -151,4 +151,55 @@ div.board{
 .app-store>a{
     padding:5px;
 }
-  
+
+
+.NL2-head-box{
+
+}
+
+.NL2-head-box>p{
+    text-align: center;
+}
+
+.NL2>div{
+    margin-left: 200px;
+}
+.NL2>div:first-child{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+
+.NL-descript-font{
+    color: #4c4c4c;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.NL-descript-wrap{
+    /* margin-top: 50px; */
+}
+.NL-figure-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+ 
+}
+
+.hr-vertical{
+    width:1px;
+    height:40px;
+    border-right: 2px solid #d6d6d6;
+}
+.NL-figure-box{
+    margin: 15px;
+}
+.NL-figure-box>p:first-child{
+    font-weight: 700;
+    font-size: 33px;
+}
+.NL-figure-box>p>span{
+    font-weight: 600;
+    font-size: 20px;
+}
