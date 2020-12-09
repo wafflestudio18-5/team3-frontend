@@ -11,7 +11,7 @@
 } 
 .NL3{
     background-color: #f9f9f9;
-    height:300px;
+    height:600px;
 } 
 .NL-box{
     width:1650px;
@@ -169,6 +169,14 @@ div.board{
     margin-bottom: 50px;
 }
 
+.NL3>div{
+    margin-left: 200px;
+}
+.NL3>div:first-child{
+    padding-top: 100px;
+    margin-bottom: 50px;
+}
+
 
 .NL-descript-font{
     color: #4c4c4c;
@@ -202,4 +210,43 @@ div.board{
 .NL-figure-box>p>span{
     font-weight: 600;
     font-size: 20px;
+}
+
+.NL-icon-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.NL-icon-box{
+    margin:60px 60px 0px 60px;
+    background-color: white;
+    border-radius: 50px;
+    width:80px;
+    height:80px;
+    position: relative;
+}
+.NL-icon-img{
+    position: absolute;
+    width:32px;
+    top:22px;
+    left:22px;
+}
+.NL-active>img{
+    animation: active-img 1s ease-out;
+}
+
+@keyframes active-img{
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }

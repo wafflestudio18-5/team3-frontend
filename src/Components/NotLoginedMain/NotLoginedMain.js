@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Flex, Center, Box, Text, Square } from "@chakra-ui/react";
 import Aside from "../Aside/Aside";
 import "./NotLoginedMainPage.css";
@@ -30,6 +30,10 @@ const figures = [
 ];
 
 const NotLoginedMain = () => {
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+  }, []);
+
   const renderedFigure = figures.map((figure, index) => {
     const { number, description } = figure;
     return (
@@ -78,6 +82,7 @@ const NotLoginedMain = () => {
           </a>
         </div>
       </section>
+
       <section className="NL2 NL-box">
         <div className="NL2-head-box">
           <p className="NL-head-black">350만 대학생을 위한</p>
@@ -95,8 +100,12 @@ const NotLoginedMain = () => {
         </div>
         <div className="NL-figure-wrap">{renderedFigure}</div>
       </section>
+
       <section className="NL3 NL-box">
-        <div>전국 396개 캠퍼스 재학생 커뮤니티 에브리타임!</div>
+        <div className="NL2-head-box">
+          <p className="NL-head-black"> 전국 396개 캠퍼스 </p>
+          <p className="NL-head-red NL2-head">재학생 커뮤니티 에브리타임!</p>
+        </div>
         <div className="NL-descript-font NL-descript-wrap">
           <p>
             학교 인증을 거친 재학생들의 안전한 대화를 위한 익명 시스템과
@@ -108,10 +117,34 @@ const NotLoginedMain = () => {
           </p>
           <p>가장 활발히 이용하는 재학생 커뮤니티로 자리잡았습니다.</p>
         </div>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div className="NL-icon-wrap">
+          <div>
+            <div className="NL-icon-box">
+              <img
+                src="https://everytime.kr/images/about/icon.authorized.png"
+                className="NL-icon-img"
+              ></img>
+            </div>
+            <p>철저한 학교 인증</p>
+          </div>
+          <div>
+            <div className="NL-icon-box">
+              <img
+                src="https://everytime.kr/images/about/icon.authorized.png"
+                className="NL-icon-img"
+              ></img>
+            </div>
+            <p>철저한 학교 인증</p>
+          </div>
+          <div>
+            <div className="NL-icon-box">
+              <img
+                src="https://everytime.kr/images/about/icon.authorized.png"
+                className="NL-icon-img"
+              ></img>
+            </div>
+            <p>철저한 학교 인증</p>
+          </div>
         </div>
       </section>
 
