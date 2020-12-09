@@ -1,10 +1,12 @@
 import { Container, Select, Input, Button, Box, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./registerForm.css";
 
 const yaerList = new Array(14).fill(2021);
 
 const RegisterForm = () => {
+  const history = useHistory();
   const [input, setInput] = useState("");
   const onInputChange = (e) => {
     setInput(e.target.value);
@@ -46,9 +48,18 @@ const RegisterForm = () => {
           value={input}
           onChange={onInputChange}
         />
-        <Button colorScheme="red" variant="solid" width="100%" mt="4" mb="4">
-          다음
-        </Button>
+        <Link to="/register/agreement">
+          <Button
+            colorScheme="red"
+            variant="solid"
+            width="100%"
+            mt="4"
+            mb="4"
+            onSubmit={() => {}}
+          >
+            다음
+          </Button>
+        </Link>
       </form>
     </Container>
   );
