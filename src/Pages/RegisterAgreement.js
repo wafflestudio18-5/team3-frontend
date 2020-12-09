@@ -4,11 +4,10 @@ import AgreementBox from "../Components/Register/AgreementBox";
 import terms from "../Contexts/terms";
 const RegisterAgreement = () => {
   const [checkAll, setCheckAll] = useState(Array(terms.length + 1).fill(false));
-  console.log(checkAll);
-  const onCheck = () => {
+  const onCheck = (n) => {
     setCheckAll(
       checkAll.map((item, index) => {
-        if (index === 0 && item) return false;
+        if (index === n + 1 || (index === 0 && item)) return !item;
         return item;
       })
     );
@@ -21,10 +20,12 @@ const RegisterAgreement = () => {
           term={term}
           onCheck={onCheck}
           key={index}
+          ind={index}
         />
       );
     });
   };
+
   return (
     <Container className="box-border" p="20px" mt="20px" borderRadius="10px">
       <h2 className="term-box-head-font mb-15">약관동의</h2>
@@ -35,7 +36,8 @@ const RegisterAgreement = () => {
           isChecked={checkAll[0]}
           onClick={(e) => {
             e.preventDefault();
-            setCheckAll([...checkAll].fill(!checkAll[0]));
+            setCheckAll(() => [...checkAll].fill(!checkAll[0]));
+            console.log(checkAll[0]);
           }}
         >
           아래 약관에 모두 동의합니다.

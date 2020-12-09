@@ -32,3 +32,8 @@
 .mb-15{
     margin-bottom: 15px;
 }
+
+.term-head-font{
+    font-size: 14px !important;
+    font-weight: 600;
+}

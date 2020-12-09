@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./registerForm.css";
 import { Checkbox } from "@chakra-ui/react";
-const AgreementBox = ({ term, checked, onCheck }) => {
+const AgreementBox = ({ term, checked, onCheck, ind }) => {
   const [check, setCheck] = useState(checked);
   useEffect(() => {
     setCheck(checked);
   }, [checked]);
+
   const renderedTermContent = term.contents.map((item, index) => {
     return (
       <div key={index} className="term-descript-font">
-        <h4>{item.head}</h4>
+        <h4 className="term-head-font">{item.head}</h4>
         <p>{item.content}</p>
       </div>
     );
@@ -24,7 +25,7 @@ const AgreementBox = ({ term, checked, onCheck }) => {
         onClick={(e) => {
           e.preventDefault();
           setCheck(!check);
-          onCheck();
+          onCheck(ind);
         }}
       >
         {term.label}
