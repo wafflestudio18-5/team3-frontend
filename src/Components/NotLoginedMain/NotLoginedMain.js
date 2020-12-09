@@ -19,10 +19,16 @@ const NotLoginedMain = () => {
         </div>
         <div className="app-store">
           <a>
-            <img src="https://everytime.kr/images/about/playstore.png"></img>
+            <img
+              src="https://everytime.kr/images/about/playstore.png"
+              className="NL-store-img"
+            ></img>
           </a>
           <a>
-            <img src="https://everytime.kr/images/about/appstore.png"></img>
+            <img
+              src="https://everytime.kr/images/about/appstore.png"
+              className="NL-store-img"
+            ></img>
           </a>
         </div>
       </section>
