@@ -10,13 +10,16 @@ const useScrollCount = (end, start = 0, duration = 1000, delay = 0) => {
       const { current } = element;
       if (entry.isIntersecting) {
         let currentNumber = start;
-        const counter = setInterval(() => {
-          currentNumber++;
-          current.innerHTML = currentNumber;
-          if (currentNumber === end) {
-            clearInterval(counter);
-          }
-        }, stepTime);
+        current.innerHTML = end;
+        setTimeout(() => {
+          const counter = setInterval(() => {
+            currentNumber++;
+            current.innerHTML = currentNumber;
+            if (currentNumber === end) {
+              clearInterval(counter);
+            }
+          }, stepTime);
+        }, delay);
       }
     },
     [end, start, stepTime, element]
