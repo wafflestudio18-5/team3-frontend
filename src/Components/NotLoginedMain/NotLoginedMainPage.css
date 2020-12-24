@@ -153,9 +153,6 @@ div.board{
 }
 
 
-.NL2-head-box{
-
-}
 
 .NL2-head-box>p{
     text-align: center;
@@ -203,13 +200,14 @@ div.board{
 .NL-figure-box{
     margin: 15px;
 }
-.NL-figure-box>p:first-child{
+.NL-figure-box>p>span{
     font-weight: 700;
     font-size: 33px;
 }
-.NL-figure-box>p>span{
-    font-weight: 600;
-    font-size: 20px;
+
+.NL-unit{
+    font-weight: 600 !important;
+    font-size: 20px !important;
 }
 
 .NL-icon-wrap{
@@ -231,16 +229,51 @@ div.board{
     top:22px;
     left:22px;
 }
-.NL-active>img{
-    animation: active-img 1s ease-out;
+.NL-active0>img{
+    animation: active-img0 1s ease-out;
 }
-
-@keyframes active-img{
+.NL-active1>img{
+    animation: active-img1 1s ease-out;
+}
+.NL-active2>img{
+    animation: active-img2 1s ease-out;
+}
+@keyframes active-img0{
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    40% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes active-img1{
     0% {
         opacity: 0;
         transform: translateY(20px);
     }
     50% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes active-img2{
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    60% {
         opacity: 0;
         transform: translateY(20px);
     }

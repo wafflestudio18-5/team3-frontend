@@ -1,26 +1,26 @@
-import React, { useEffect } from "react";
-import { Flex, Center, Box, Text, Square } from "@chakra-ui/react";
+import React, { useEffect, useState, useRef } from "react";
 import Aside from "../Aside/Aside";
 import "./NotLoginedMainPage.css";
-
+import CountUpFigure from "./CountUpFigure";
 const figures = [
   {
+    id: 0,
     number: [{ num: 457, unit: "만" }],
     description: "가입한 대학생",
   },
   {
+    id: 1,
     number: [{ num: 2371, unit: "만" }],
     description: "만들어진 시간표",
   },
   {
+    id: 2,
     number: [{ num: 272, unit: "만" }],
     description: " 강의평/시험정보",
   },
+  { id: 3, number: [{ num: 130, unit: "만" }], description: "중고 거래된 책" },
   {
-    number: [{ num: 130, unit: "만" }],
-    description: "중고 거래된 책",
-  },
-  {
+    id: 4,
     number: [
       { num: 8, unit: "억" },
       { num: 9279, unit: "만" },
@@ -30,25 +30,31 @@ const figures = [
 ];
 
 const NotLoginedMain = () => {
+  const activeImgDom0 = useRef();
+  const activeImgDom1 = useRef();
+  const activeImgDom2 = useRef();
+  const activeImgArr = [activeImgDom0, activeImgDom1, activeImgDom2];
+
+  const scrollCallback = () => {
+    for (let i = 0; i < 3; i++) {
+      if (window.scrollY > 600) {
+        activeImgArr[i].current.className = `NL-icon-box NL-active${i}`;
+      } else activeImgArr[i].current.className = "NL-icon-box";
+    }
+  };
   useEffect(() => {
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", scrollCallback, false);
+
+    return () => {
+      window.removeEventListener("scroll", scrollCallback);
+    };
   }, []);
 
   const renderedFigure = figures.map((figure, index) => {
-    const { number, description } = figure;
     return (
       <>
         {index ? <hr className="hr-vertical" /> : null}
-        <div className="NL-figure-box">
-          <p className="NL-head-black">
-            {number.map((i) => (
-              <>
-                {i.num} <span>{i.unit}</span>
-              </>
-            ))}
-          </p>
-          <p>{description}</p>
-        </div>
+        <CountUpFigure figure={figure} />
       </>
     );
   });
@@ -119,7 +125,7 @@ const NotLoginedMain = () => {
         </div>
         <div className="NL-icon-wrap">
           <div>
-            <div className="NL-icon-box">
+            <div className="NL-icon-box" ref={activeImgDom0}>
               <img
                 src="https://everytime.kr/images/about/icon.authorized.png"
                 className="NL-icon-img"
@@ -128,7 +134,7 @@ const NotLoginedMain = () => {
             <p>철저한 학교 인증</p>
           </div>
           <div>
-            <div className="NL-icon-box">
+            <div className="NL-icon-box" ref={activeImgDom1}>
               <img
                 src="https://everytime.kr/images/about/icon.authorized.png"
                 className="NL-icon-img"
@@ -137,7 +143,7 @@ const NotLoginedMain = () => {
             <p>철저한 학교 인증</p>
           </div>
           <div>
-            <div className="NL-icon-box">
+            <div className="NL-icon-box" ref={activeImgDom2}>
               <img
                 src="https://everytime.kr/images/about/icon.authorized.png"
                 className="NL-icon-img"
