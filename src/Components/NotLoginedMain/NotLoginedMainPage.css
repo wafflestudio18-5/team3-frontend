@@ -1,9 +1,18 @@
 .NL1{
     background-color: #f9f9f9;
     height:660px;
-    padding-left: 350px;
+    padding-left: 20%;
     display: relative;
 } 
+
+@media screen and (max-width : 1500px){
+    .NL1{
+        background-color: #f9f9f9;
+        height:660px;
+        padding-left: 5%;
+        display: relative;
+    }
+}
 
 .NL2{
     height:400px
@@ -14,12 +23,20 @@
     height:600px;
 } 
 .NL-box{
-    width:1650px;
+    width: 100%;
     padding-right:300px;
     z-index: 0;
     text-align: center;
 }
 
+@media screen and (max-width:1300px){
+    .NL-box{
+        /* width: 100%; */
+        z-index: 10;
+        padding-right: 300px;
+        /* text-align: center; */
+    }
+}
 
 div.screen {
     position: relative;
@@ -115,13 +132,13 @@ div.board{
 .NL1-headline{
     position: absolute;
     top:250px;
-    left: 800px;
+    left: 40%;
 }
 
 .NL-head-black{
     color: #292929;
     line-height: 30px;
-    font-size: 28px;
+    font-size: 1.7rem;
 }
 
 .NL-head-red{
@@ -132,11 +149,25 @@ div.board{
     text-align: left;
     font-weight: 800;
 }
-
+@media screen and (max-width: 1300px){
+    .NL-head-black{
+        color: #292929;
+        line-height: 30px;
+        font-size: 1.4rem;
+    }
+    .NL-head-red{
+        position: relative;
+        line-height: 50px;
+        font-size: 1.5rem;    
+        color: #c62917;
+        text-align: left;
+        font-weight: 800;
+    }
+}
 .app-store{
     position: absolute;
     top:400px;
-    left:800px;
+    left:40%;
     display: flex;
 }
 
@@ -159,15 +190,16 @@ div.board{
 }
 
 .NL2>div{
-    margin-left: 200px;
+    margin-left: 10%;
 }
+
 .NL2>div:first-child{
     margin-top: 100px;
     margin-bottom: 50px;
 }
 
 .NL3>div{
-    margin-left: 200px;
+    margin-left: 10%;
 }
 .NL3>div:first-child{
     padding-top: 100px;
@@ -181,9 +213,6 @@ div.board{
     line-height: 25px;
 }
 
-.NL-descript-wrap{
-    /* margin-top: 50px; */
-}
 .NL-figure-wrap{
     display: flex;
     align-items: center;

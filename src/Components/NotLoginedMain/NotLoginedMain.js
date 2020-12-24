@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Aside from "../Aside/Aside";
+import Footer from "../Footer/Footer";
 import "./NotLoginedMainPage.css";
 import CountUpFigure from "./CountUpFigure";
 const figures = [
@@ -153,8 +154,8 @@ const NotLoginedMain = () => {
           </div>
         </div>
       </section>
-
       <Aside />
+      <Footer />
     </>
   );
 };
