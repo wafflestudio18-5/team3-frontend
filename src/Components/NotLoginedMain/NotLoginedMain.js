@@ -155,7 +155,7 @@ const NotLoginedMain = () => {
         </div>
       </section>
       <Aside />
-      <Footer />
+      <Footer page="NL" />
     </>
   );
 };

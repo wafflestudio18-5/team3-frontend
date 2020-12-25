@@ -18,7 +18,7 @@ const Login = () => {
         </Link>
         <LoginForm />
       </Stack>
-      <Footer />
+      <Footer page="login" />
     </>
   );
 };
