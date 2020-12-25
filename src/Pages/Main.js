@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import NavBar from "../Components/NavBar/NavBar";
+import BoardList from "../Components/BoardList/BoardList";
 import NotLoginedMain from "../Components/NotLoginedMain/NotLoginedMain";
 
 const Main = () => {
@@ -11,7 +12,7 @@ const Main = () => {
 
   useEffect(() => {
     if (!checkLogin()) {
-      setLoginState(false);
+      setLoginState(true);
     }
   }, []);
 
@@ -25,7 +26,7 @@ const Main = () => {
   const renderedMainPage = loginState ? (
     <div>
       <NavBar />
-      <h1>Welcome!</h1>
+      <BoardList />
     </div>
   ) : (
     <NotLoginedMain />
