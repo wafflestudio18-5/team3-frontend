@@ -1,10 +1,17 @@
 nav {
-  display: fixed;
-  top: 0px;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
   height: 80px;
+  width: 100%;
   margin: 0px;
   padding: 0;
-  border-bottom: 1px solid gray;
+}
+
+.nav-content {
+  width: 1180px;
+  margin: 0 auto;
 }
 
 .nav-logo {
@@ -35,6 +42,7 @@ nav {
 }
 
 .nav-menu {
+  display: inline;
   white-space: nowrap;
   font-size: 16px;
   font-weight: bold;

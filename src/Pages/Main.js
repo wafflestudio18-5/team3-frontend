@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import NavBar from "../Components/NavBar/NavBar";
+import Submenu from "../Components/Submenu/Submenu";
+import MainProfile from "../Components/MainProfile/MainProfile";
 import BoardList from "../Components/BoardList/BoardList";
+
 import NotLoginedMain from "../Components/NotLoginedMain/NotLoginedMain";
 
 const Main = () => {
@@ -24,11 +27,14 @@ const Main = () => {
   };
 
   const renderedMainPage = loginState ? (
-    <div>
+    <>
       <NavBar />
-
-      <BoardList />
-    </div>
+      <Submenu />
+      <div className="container">
+        <MainProfile />
+        <BoardList />
+      </div>
+    </>
   ) : (
     <NotLoginedMain />
   );

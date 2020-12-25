@@ -3,7 +3,7 @@ import { GridItem, Box, Link, Center, Button } from "@chakra-ui/react";
 
 const Board = ({ board, hidden }) => {
   return (
-    <GridItem h="192px" border="1px" borderColor="#e3e3e3">
+    <GridItem h="193px" border="1px" borderColor="#e3e3e3">
       <Box w="100%" h="40px" p="10px" borderBottom="1px" borderColor="#e3e3e3">
         <Link href={"/" + board.id}>
           <div className="boardlist-title">{board.name}</div>
