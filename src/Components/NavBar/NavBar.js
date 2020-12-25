@@ -22,17 +22,18 @@ function NavBar() {
       </li>
     );
   });
+
   return (
     <nav>
-      <div className="nav-logo">
+      <span className="nav-logo">
         <Link to="/">
           <img className="nav-logo-img" src={img_logo} alt="Everytime" />
         </Link>
-        <div>
+        <span>
           <p className="nav-title">에브리타임</p>
           <p className="nav-univ">서울대</p> {/* 하드코딩 바꾸기*/}
-        </div>
-      </div>
+        </span>
+      </span>
 
       <ul className="nav-menu">{renderedMenu}</ul>
     </nav>

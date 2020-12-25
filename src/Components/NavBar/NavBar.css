@@ -3,7 +3,7 @@ nav {
   top: 0px;
   height: 80px;
   margin: 0px;
-  padding: 20px 0;
+  padding: 0;
   border-bottom: 1px solid gray;
 }
 
@@ -11,16 +11,16 @@ nav {
   display: block;
   float: left;
   width: 140px;
-  margin-left: 24px;
+  margin: 20px 160px 20px 24px;
 }
 
 .nav-logo-img {
-  margin-right: 16px;
   float: left;
   height: 40px;
 }
 
 .nav-title {
+  text-align: center;
   font-size: 12px;
   font-weight: bold;
   line-height: 15px;
@@ -28,28 +28,30 @@ nav {
 }
 
 .nav-univ {
+  text-align: center;
   font-size: 22px;
   line-height: 25px;
   color: #292929;
 }
 
 .nav-menu {
-  justify-self: center;
+  white-space: nowrap;
   font-size: 16px;
   font-weight: bold;
   line-height: 76px;
   color: #4c4c4c;
 }
 
-.nav-menu-active {
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 76px;
-  color: #c62917;
-}
-
 .nav-li {
   margin: 0px 10px;
   font-size: 16px;
   font-weight: 600;
+}
+
+.nav-li-active {
+  margin: 0px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #c62917;
+  border-bottom: 4px solid #c62917;
 }

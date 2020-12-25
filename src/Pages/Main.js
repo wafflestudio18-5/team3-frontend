@@ -26,6 +26,7 @@ const Main = () => {
   const renderedMainPage = loginState ? (
     <div>
       <NavBar />
+
       <BoardList />
     </div>
   ) : (
