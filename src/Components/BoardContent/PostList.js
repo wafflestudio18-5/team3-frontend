@@ -8,7 +8,7 @@ const PostList = ({ boardId }) => {
   const { boards } = useListContext();
 
   return (
-    <VStack w="778px" border="1px" borderColor="#e3e3e3">
+    <VStack w="778px" border="1px" borderBottom="0" borderColor="#e3e3e3">
       {
         // TODO: 특정 페이지만 보이게 하기
         boards

@@ -51,13 +51,13 @@ nav {
 }
 
 .nav-li {
-  margin: 0px 10px;
+  margin: 0px 20px;
   font-size: 16px;
   font-weight: 600;
 }
 
 .nav-li-active {
-  margin: 0px 10px;
+  margin: 0px 20px;
   font-size: 16px;
   font-weight: bold;
   color: #c62917;

@@ -1,0 +1,18 @@
+.boardcontent-write {
+  margin-bottom: 5px;
+  padding: 0 10px;
+  width: 778px;
+  height: 50px;
+
+  border: 2px solid #d6d6d6;
+  box-sizing: border-box;
+  cursor: text;
+
+  color: #a6a6a6;
+  font-size: 14px;
+  line-height: 46px;
+  text-align: left;
+
+  background: #f9f9f9 url(/src/Images/write.png) no-repeat right center;
+  background-size: 40px 40px;
+}

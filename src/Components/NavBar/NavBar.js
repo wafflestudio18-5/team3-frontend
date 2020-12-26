@@ -17,7 +17,7 @@ function NavBar() {
   const renderedMenu = navMenu.map((item) => {
     const { id, address, name } = item;
     return (
-      <li className="nav-li" key={id}>
+      <li className={id === 1 ? "nav-li-active" : "nav-li"} key={id}>
         <Link to={address}>{name}</Link>
       </li>
     );

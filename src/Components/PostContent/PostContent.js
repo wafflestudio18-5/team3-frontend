@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Box } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 
 import { useListContext } from "../../Context/BoardList";
 import CommentList from "./CommentList";
@@ -16,17 +16,19 @@ const PostContent = () => {
     .posts.find((post) => post.id === +postId);
 
   return (
-    <>
-      <Box
-        w="778px"
-        h="61px"
-        p="15px"
-        mb="5px"
-        border="1px"
-        borderColor="#e3e3e3"
-      >
-        <h1>{boards.find((board) => board.id === +boardId).name}</h1>
-      </Box>
+    <section>
+      <a href={"/" + boardId}>
+        <Box
+          w="778px"
+          h="61px"
+          p="15px"
+          mb="5px"
+          border="1px"
+          borderColor="#e3e3e3"
+        >
+          <h1>{boards.find((board) => board.id === +boardId).name}</h1>
+        </Box>
+      </a>
 
       <Box w="778px" p="15px" border="1px" borderColor="#e3e3e3">
         <img className="img-user" src={img_user} alt="user" />
@@ -46,7 +48,7 @@ const PostContent = () => {
       </Box>
 
       <CommentList boardId={boardId} postId={postId} />
-    </>
+    </section>
   );
 };
 

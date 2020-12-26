@@ -17,7 +17,7 @@ const PostItem = ({ boardId, post }) => {
           <div className="black14">{post.title}</div>
           <div className="lgray12">{post.content}</div>
           <time>{post.time}</time>
-          <span>{post.user_id}</span>
+          <span className="black11">익명{post.user_id}</span>
           <ul className="stat">
             <li className="stat-like">{post.likes}</li>
             <li className="stat-comment">{post.comments.length}</li>
