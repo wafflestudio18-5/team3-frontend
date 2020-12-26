@@ -1,0 +1,32 @@
+.subboard-lg {
+  width: 323px;
+  height: 192px;
+  border: 1px solid #d6d6d6;
+  background-color: #f9f9f9;
+  margin-bottom: 5px;
+}
+
+.subboard-sm {
+  width: 323px;
+  height: 42px;
+  border: 1px solid #d6d6d6;
+  background-color: #f9f9f9;
+  margin-bottom: 5px;
+}
+
+.subboard-title {
+  width: 100%;
+  height: 40px;
+  background-color: #f9f9f9;
+  color: #3744a5;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.subboard-title:hover {
+  background-color: #ffffff;
+}
+
+.subboard-content {
+}

@@ -88,7 +88,7 @@ const Aside = () => {
         <Link to="/register">
           <button className="register-btn button">에브리타임 회원가입</button>
         </Link>
-        <Link>
+        <Link to="/">
           <p className="description-font">아이디/비밀번호 찾기</p>
         </Link>
       </div>

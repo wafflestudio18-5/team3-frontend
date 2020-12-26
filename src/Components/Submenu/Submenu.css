@@ -1,0 +1,38 @@
+.submenu {
+  white-space: nowrap;
+  margin-top: 80px;
+  width: 100%;
+  min-width: 1180px;
+  height: 150px;
+  padding: 15px;
+  background-color: #f2f2f2;
+  border-top: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.submenu-content {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.submenu-column {
+  float: left;
+  display: flex;
+  list-style: none;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: auto;
+  width: 160px;
+  height: 100px;
+  padding: 0 15px;
+  border-left: 1px solid #e3e3e3;
+  white-space: nowrap;
+}
+
+.submenu-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 25px;
+  color: #4c4c4c;
+}

@@ -1,0 +1,20 @@
+.mainprofile-buttonlist {
+  margin: 0 auto;
+}
+
+.mainprofile-menu {
+  min-height: 41px;
+  width: 100%;
+  padding: 10px 0 10px 15px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #4c4c4c;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.mainprofile-icon {
+  display: inline;
+  width: 12px;
+  margin-right: 10px;
+  margin-bottom: 3px;
+}

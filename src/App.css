@@ -1,22 +1,261 @@
 
-/* html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-} */
+/* GLOBAL */
+
+body {
+  font-family: "맑은 고딕", 돋움, tahoma !important;
+  letter-spacing: -0.5px !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+button,
+input,
+textarea {
+  outline: 0 !important;
+}
+
+.center {
+  text-align: center;
+}
+
+/* BOX */
+
+.aside-left {
+  float: left;
+  margin-right: 20px;
+}
+
+.aside-right {
+  float: left;
+  margin-left: 25px;
+}
+
+.container {
+  width: 1180px;
+  margin: 25px auto;
+  padding-left: 25px;
+}
+
+section {
+  float: left;
+}
+
+/* TEXT */
+
+time {
+  font-size: 11px;
+  line-height: 18px;
+  color: #a6a6a6;
+}
+
+h1 {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color: #292929;
+}
+
+h2 {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color: #292929;
+  margin-bottom: 15px !important;
+}
+
+.black14 {
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #292929;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.black14b {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #292929;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.black12b {
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 15px;
+  color: #292929;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.black11 {
+  margin-left: 5px;
+  font-size: 11px;
+  line-height: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dgray18b {
+  margin-bottom: 5px;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #393939;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.gray14 {
+  font-size: 14px;
+  line-height: 18px;
+  color: #4c4c4c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gray13 {
+  font-size: 13px;
+  line-height: 18px;
+  color: #4c4c4c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lgray12 {
+  margin-bottom: 5px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #a6a6a6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat {
+  display: inline-block;
+  float: right;
+}
+
+.stat-like-s {
+  margin-right: 5px;
+  padding-left: 15px;
+  height: 14px;
+
+  background-image: url(/src/Images/like.png);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: left center;
+
+  font-size: 11px;
+  line-height: 14px;
+  color: #c62917;
+}
+
+.stat-comment-s {
+  margin-right: 5px;
+  padding-left: 15px;
+  height: 14px;
+
+  background-image: url(/src/Images/comment.png);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: left center;
+
+  font-size: 11px;
+  line-height: 14px;
+  color: #0ca5af;
+}
+
+.stat-like {
+  margin-right: 7px;
+  padding-left: 15px;
+  height: 14px;
+
+  background-image: url(/src/Images/like.png);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: left center;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #c62917;
+}
+
+.stat-comment {
+  margin-right: 7px;
+  padding-left: 15px;
+  height: 14px;
+
+  background-image: url(/src/Images/comment.png);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: left center;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #0ca5af;
+}
+
+.stat-star {
+  margin-right: 7px;
+  padding-left: 15px;
+  height: 14px;
+
+  background-image: url(/src/Images/star.png);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: left center;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffcc1c;
+}
+
+/* IMG */
+
+.img-user-l {
+  margin: 15px auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+}
+
+.img-user {
+  float: left;
+  margin: 0 10px 15px 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.img-user-s {
+  display: inline;
+  margin: 0 5px 5px 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.ad-lg {
+  width: 600px;
+}
+
+.ad-sm {
+  width: 173px;
+  margin-bottom: 6px;
+}
+
+/* Box */
+
+.bg-gray {
+  background-color: #f9f9f9;
+}
+
+
+
 

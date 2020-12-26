@@ -1,0 +1,27 @@
+.boardlist-title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #c62917;
+}
+
+.boardlist-hidden {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 18ox;
+  color: #a6a6a6;
+  text-align: center;
+}
+
+.boardlist-content {
+  min-height: 30px;
+}
+
+.boardlist-time-right {
+  float: right;
+}
+
+.boardlist-stat {
+  margin-left: 10px;
+  display: inline;
+}
