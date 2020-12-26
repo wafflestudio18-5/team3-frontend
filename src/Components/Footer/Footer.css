@@ -1,15 +1,16 @@
 .footer{
-  position: fixed;
+  /* position: fixed; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   bottom:0px;
-  left:0;
   height:50px;
   width:100%;
-  background-color: #f8f8f8;
-  border-top: 1px solid #e3e3e3;
+  align-items: center;
+  padding-right: 300px
 }
-ul{
-    text-align: center;
-}
+
+
 
 li{
     margin-top: 10px;
