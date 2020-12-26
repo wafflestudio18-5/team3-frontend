@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 
 import { useListContext } from "../../Context/BoardList";
