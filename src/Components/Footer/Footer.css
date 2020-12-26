@@ -7,12 +7,9 @@
   height:50px;
   width:100%;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.footer-NL{
-  padding-right: 300px;
-  padding-left: 10%;
-}
 
 .footer-login{
   position: fixed;
@@ -42,4 +39,20 @@ li{
 .footer>ul>li:last-child>a{
   color:black;
   font-weight: 600;
+}
+
+
+@media only screen and (min-width: 991px){
+  .footer-NL{
+    padding-right: 300px;
+    padding-left:10%;
+  }
+}
+
+
+@media only screen and (max-width: 990px){
+  .footer-NL{
+    padding-right:0px;
+    padding-left: 0px;
+  }
 }
