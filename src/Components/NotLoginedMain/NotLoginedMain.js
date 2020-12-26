@@ -99,11 +99,16 @@ const NotLoginedMain = () => {
         </div>
         <div className="NL-descript-font NL-descript-wrap">
           <p>
-            시간표 작성, 수업 일정 및 할일 등 편리한 학업 관리가 가능하고, 학식
-            등
+            시간표 작성, 수업 일정 및 할일 등 편리한 <strong>학업 관리</strong>
+            가 가능하고, 학식 등
           </p>
-          <p>유용한 학교 생활 정보를 접할 수 있으며, 같은 캠퍼스의 학생들과</p>
-          <p>소통하는 익명 커뮤니티를 이용할 수 있습니다.</p>
+          <p>
+            유용한<strong> 학교 생활 정보</strong>를 접할 수 있으며, 같은
+            캠퍼스의 학생들과
+          </p>
+          <p>
+            소통하는 <strong>익명 커뮤니티</strong>를 이용할 수 있습니다.
+          </p>
         </div>
         <div className="NL-figure-wrap">{renderedFigure}</div>
       </section>
@@ -115,12 +120,12 @@ const NotLoginedMain = () => {
         </div>
         <div className="NL-descript-font NL-descript-wrap">
           <p>
-            학교 인증을 거친 재학생들의 안전한 대화를 위한 익명 시스템과
-            학생들이
+            학교 인증을 거친 재학생들의 안전한 대화를 위한{" "}
+            <strong>익명 시스템</strong>과 학생들이
           </p>
           <p>
-            직접 게시판을 개설하여 운영하는 커뮤니티 플랫폼을 통해 많은
-            대학교에서
+            직접 게시판을 개설하여 운영하는 <strong>커뮤니티 플랫폼</strong>을
+            통해 많은 대학교에서
           </p>
           <p>가장 활발히 이용하는 재학생 커뮤니티로 자리잡았습니다.</p>
         </div>
@@ -141,7 +146,7 @@ const NotLoginedMain = () => {
                 className="NL-icon-img"
               ></img>
             </div>
-            <p>철저한 학교 인증</p>
+            <p>철저한 익명 시스템</p>
           </div>
           <div>
             <div className="NL-icon-box" ref={activeImgDom2}>
@@ -150,12 +155,12 @@ const NotLoginedMain = () => {
                 className="NL-icon-img"
               ></img>
             </div>
-            <p>철저한 학교 인증</p>
+            <p>재학생 운영 게시판</p>
           </div>
         </div>
       </section>
       <Aside />
-      <Footer />
+      <Footer page="NL" />
     </>
   );
 };

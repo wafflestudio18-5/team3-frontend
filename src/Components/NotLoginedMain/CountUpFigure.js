@@ -1,5 +1,6 @@
 import React from "react";
 import { useScrollCount } from "../../hooks";
+import "./CountUpFIgure.css";
 const CountUpFigure = ({ figure }) => {
   const { number, description, id } = figure;
   const numLen = number.length - 1;
@@ -12,8 +13,8 @@ const CountUpFigure = ({ figure }) => {
   );
 
   return (
-    <div className="NL-figure-box">
-      <p className="NL-head-black">
+    <div className="NL-figure-box NL-descript-font">
+      <p className="NL-figure">
         {number.map((i, index) => (
           <React.Fragment key={index}>
             {index === numLen - 1 ? (

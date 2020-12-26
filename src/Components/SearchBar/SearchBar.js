@@ -4,6 +4,7 @@ import { Input } from "@chakra-ui/react";
 
 const SearchBar = ({ label, placeHolder, onUniChange, list }) => {
   const [input, setInput] = useState("");
+
   const onInputChange = (e) => {
     setInput(e.target.value);
     onInputSubmit(e.target.value);
