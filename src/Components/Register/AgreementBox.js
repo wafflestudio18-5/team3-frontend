@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./registerForm.css";
 import { Checkbox } from "@chakra-ui/react";
-const AgreementBox = ({ term, checked, onCheck, ind }) => {
-  const [check, setCheck] = useState(checked);
+import { useTermContext } from "../../Context/TermData";
+
+const AgreementBox = ({ term, checked, ind }) => {
+  const { checkTerm } = useTermContext();
+  const [check, setCheck] = useState(false);
+
   useEffect(() => {
     setCheck(checked);
   }, [checked]);
@@ -22,10 +26,9 @@ const AgreementBox = ({ term, checked, onCheck, ind }) => {
         size="sm"
         colorScheme="red"
         isChecked={check}
-        onClick={(e) => {
-          e.preventDefault();
+        onChange={() => {
           setCheck(!check);
-          onCheck(ind);
+          checkTerm(ind);
         }}
       >
         {term.label}
