@@ -37,3 +37,20 @@
     font-size: 14px !important;
     font-weight: 600;
 }
+
+.register-uni-list{
+    display: block;
+    line-height: 40px;
+    padding: 0 8px;
+    color: #4c4c4c;
+    font-size: 17px;
+    cursor: pointer;
+    font-family: "맑은 고딕";
+}
+
+.register-uni-list>span{
+    color: #c62917;
+    font-weight: 600;
+}
+
+
