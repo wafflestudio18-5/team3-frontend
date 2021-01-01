@@ -89,6 +89,7 @@ const RegisterForm = () => {
           name="university"
           onChange={(e) => setSearchUni(e.target.value)}
           onClick={resetUni}
+          autoComplete="off"
         />
         <UniMatchedList name={searchUni} onUniSet={setUniversity} />
 

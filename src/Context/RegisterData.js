@@ -25,23 +25,17 @@ const RegisterProvider = ({ children }) => {
     history.push("/register/info");
   };
 
-  const setUserInfo = ({
-    userName,
-    user_id,
-    password,
-    checkPw,
-    email,
-    nickname,
-  }) => {
+  const setUserInfo = ({ userName, user_id, password, email, nickname }) => {
     setState((state) => ({
       ...state,
       userName,
       user_id,
       password,
-      checkPw,
       email,
       nickname,
     }));
+
+    history.push("../");
   };
 
   const termState = useMemo(
