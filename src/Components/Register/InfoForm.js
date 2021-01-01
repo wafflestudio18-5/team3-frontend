@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container } from "@chakra-ui/react";
 import "./InfoForm.css";
 import { checkFunctions, defaultValid } from "./CheckFunctions";
+import { useRegisterContext } from "../../Context/RegisterData";
 
 const defaultInput = {
   user_id: "",
@@ -16,6 +17,8 @@ const InfoForm = () => {
   const [input, setInput] = useState(defaultInput);
   const [validList, setValidList] = useState(defaultValid);
   const { user_id, userName, password, samePw, email, nickName } = input;
+
+  const { setUserInfo } = useRegisterContext();
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
@@ -138,7 +141,9 @@ const InfoForm = () => {
         </div>
         <button
           className="red-button"
-          onClick={() => checkAllInputValid(input)}
+          onClick={() =>
+            checkAllInputValid(input) ? setUserInfo(input) : null
+          }
         >
           회원가입
         </button>

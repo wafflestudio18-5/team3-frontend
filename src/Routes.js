@@ -1,6 +1,6 @@
 import Main from "./Pages/Main";
 import Login from "./Pages/Login";
-import Register from "./Pages/Register";
+import { Register } from "./Pages/Register";
 import Board from "./Pages/Board";
 import Post from "./Pages/Post";
 
