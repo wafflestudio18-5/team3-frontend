@@ -30,7 +30,7 @@ const My = () => {
         </div>
         {renderedContents}
       </section>
-      <Footer page="NL" />
+      <Footer page="my" />
     </>
   );
 };
