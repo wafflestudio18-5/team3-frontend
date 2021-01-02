@@ -1,3 +1,10 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+}
 .aside{
     width: 300px;
     text-align: center;
@@ -65,10 +72,23 @@
 
 .campusbox{
     height: 50px;
-    vertical-align: middle;
-    text-align: center;
-    padding-top:10px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
     font-weight: 500;
+    width: 300px;
+    font-family: "맑은 고딕";
+    font-size: 15px;
+}
+
+.campusbox>:first-child{
+    margin-left: 15px;
+}
+
+.campusbox>:last-child{
+    margin-right:15px;
+    font-size:12px;
+    color:gray
 }
 .search{
     position:fixed;
@@ -87,12 +107,7 @@
 }
 
 
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-weight: normal;
-}
+
 
 aside::-webkit-scrollbar{
     display: none;
