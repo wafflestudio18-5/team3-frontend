@@ -11,6 +11,9 @@ const Footer = ({ page }) => {
       case "login":
         ref.current.className = "footer footer-login";
         break;
+      case "my":
+        ref.current.className = "footer";
+        break;
       default:
         ref.current.className = "footer footer-main";
         break;
