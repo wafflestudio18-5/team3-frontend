@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import { Aside, Footer } from "../";
 import "./NotLoginedMainPage.css";
 import CountUpFigure from "./CountUpFigure";
@@ -33,22 +33,25 @@ const NotLoginedMain = () => {
   const activeImgDom0 = useRef();
   const activeImgDom1 = useRef();
   const activeImgDom2 = useRef();
-  const activeImgArr = [activeImgDom0, activeImgDom1, activeImgDom2];
-
-  const scrollCallback = () => {
+  const activeImgArr = useMemo(
+    () => [activeImgDom0, activeImgDom1, activeImgDom2],
+    []
+  );
+  const scrollCallback = useCallback(() => {
     for (let i = 0; i < 3; i++) {
       if (window.scrollY > 600 && activeImgArr[i].current) {
         activeImgArr[i].current.className = `NL-icon-box NL-active${i}`;
       } else activeImgArr[i].current.className = "NL-icon-box";
     }
-  };
+  }, [activeImgArr]);
+
   useEffect(() => {
     window.addEventListener("scroll", scrollCallback, false);
 
     return () => {
       window.removeEventListener("scroll", scrollCallback);
     };
-  }, []);
+  }, [scrollCallback]);
 
   const renderedFigure = figures.map((figure, index) => {
     return (
@@ -74,16 +77,18 @@ const NotLoginedMain = () => {
           <p className="NL-head-red">와브리타임</p>
         </div>
         <div className="app-store">
-          <a>
+          <a href="https://play.google.com/store?hl=ko">
             <img
               src="https://everytime.kr/images/about/playstore.png"
               className="NL-store-img"
+              alt="playstore"
             ></img>
           </a>
-          <a>
+          <a href="https://play.google.com/store?hl=ko">
             <img
               src="https://everytime.kr/images/about/appstore.png"
               className="NL-store-img"
+              alt="appstore"
             ></img>
           </a>
         </div>
@@ -134,6 +139,7 @@ const NotLoginedMain = () => {
               <img
                 src="https://everytime.kr/images/about/icon.authorized.png"
                 className="NL-icon-img"
+                alt="university certification"
               ></img>
             </div>
             <p>철저한 학교 인증</p>
@@ -143,6 +149,7 @@ const NotLoginedMain = () => {
               <img
                 src="https://everytime.kr/images/about/icon.authorized.png"
                 className="NL-icon-img"
+                alt="unonymous system"
               ></img>
             </div>
             <p>철저한 익명 시스템</p>
@@ -152,6 +159,7 @@ const NotLoginedMain = () => {
               <img
                 src="https://everytime.kr/images/about/icon.authorized.png"
                 className="NL-icon-img"
+                alt="board"
               ></img>
             </div>
             <p>재학생 운영 게시판</p>
