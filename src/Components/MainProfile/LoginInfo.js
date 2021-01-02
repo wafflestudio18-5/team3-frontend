@@ -1,9 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Box, Button } from "@chakra-ui/react";
 
 import img_user from "../../Images/user.png";
-
 function LoginInfo() {
+  const history = useHistory();
   return (
     <Box
       w="173px"
@@ -22,7 +23,14 @@ function LoginInfo() {
       </div>
       <ul className="mainprofile-buttonlist">
         <li>
-          <Button size="xs">내 정보</Button>
+          <Button
+            size="xs"
+            onClick={() => {
+              history.push("/my");
+            }}
+          >
+            내 정보
+          </Button>
         </li>
         <li>
           <Button size="xs">로그아웃</Button>
