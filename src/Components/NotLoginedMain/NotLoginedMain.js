@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Aside from "../Aside/Aside";
-import Footer from "../Footer/Footer";
+import { Aside, Footer } from "../";
 import "./NotLoginedMainPage.css";
 import CountUpFigure from "./CountUpFigure";
 const figures = [
@@ -38,7 +37,7 @@ const NotLoginedMain = () => {
 
   const scrollCallback = () => {
     for (let i = 0; i < 3; i++) {
-      if (window.scrollY > 600) {
+      if (window.scrollY > 600 && activeImgArr[i].current) {
         activeImgArr[i].current.className = `NL-icon-box NL-active${i}`;
       } else activeImgArr[i].current.className = "NL-icon-box";
     }
@@ -53,10 +52,10 @@ const NotLoginedMain = () => {
 
   const renderedFigure = figures.map((figure, index) => {
     return (
-      <>
+      <React.Fragment key={index}>
         {index ? <hr className="hr-vertical" /> : null}
         <CountUpFigure figure={figure} />
-      </>
+      </React.Fragment>
     );
   });
 
@@ -71,8 +70,8 @@ const NotLoginedMain = () => {
           </div>
         </div>
         <div className="NL1-headline">
-          <p className="NL-head-black">대학 생활을 더 편하고 즐겁게,</p>
-          <p className="NL-head-red">에브리타임</p>
+          <p className="NL-head-black">동아리 생활을 더 편하고 즐겁게,</p>
+          <p className="NL-head-red">와브리타임</p>
         </div>
         <div className="app-store">
           <a>
@@ -94,7 +93,7 @@ const NotLoginedMain = () => {
         <div className="NL2-head-box">
           <p className="NL-head-black">350만 대학생을 위한</p>
           <p className="NL-head-red NL2-head">
-            국내 1위 대학생 서비스 에브리타임!
+            국내 1위 대학생 서비스 와브리타임!
           </p>
         </div>
         <div className="NL-descript-font NL-descript-wrap">
@@ -116,11 +115,11 @@ const NotLoginedMain = () => {
       <section className="NL3 NL-box">
         <div className="NL2-head-box">
           <p className="NL-head-black"> 전국 396개 캠퍼스 </p>
-          <p className="NL-head-red NL2-head">재학생 커뮤니티 에브리타임!</p>
+          <p className="NL-head-red NL2-head">재학생 커뮤니티 와브리타임!</p>
         </div>
         <div className="NL-descript-font NL-descript-wrap">
           <p>
-            학교 인증을 거친 재학생들의 안전한 대화를 위한{" "}
+            학교 인증을 거친 재학생들의 안전한 대화를 위한
             <strong>익명 시스템</strong>과 학생들이
           </p>
           <p>
