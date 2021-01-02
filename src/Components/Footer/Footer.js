@@ -18,7 +18,7 @@ const Footer = ({ page }) => {
         ref.current.className = "footer footer-main";
         break;
     }
-  }, []);
+  }, [page]);
   return (
     <footer className="footer" ref={ref}>
       <ul>

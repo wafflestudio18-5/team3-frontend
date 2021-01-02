@@ -148,7 +148,12 @@ const InfoForm = () => {
           회원가입
         </button>
       </form>
-      <iframe id="iframe1" name="iframe1" style={{ display: "none" }}></iframe>
+      <iframe
+        title="nosubmit"
+        id="iframe1"
+        name="iframe1"
+        style={{ display: "none" }}
+      ></iframe>
     </Container>
   );
 };
