@@ -19,6 +19,10 @@ function App() {
           component={routes.register.component}
         />
         <Route
+          path={routes.UserInfo.path}
+          component={routes.UserInfo.component}
+        />
+        <Route
           exact
           path={routes.board.path}
           component={routes.board.component}
