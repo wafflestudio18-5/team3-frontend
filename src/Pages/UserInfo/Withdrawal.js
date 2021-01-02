@@ -1,5 +1,5 @@
-const Withdrawl = () => {
-  return <div>Withdrawl</div>;
+const Withdrawal = () => {
+  return <div>Withdrawal</div>;
 };
 
-export default Withdrawl;
+export default Withdrawal;

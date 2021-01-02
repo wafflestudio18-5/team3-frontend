@@ -1,0 +1,57 @@
+.my-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 90px;
+}
+
+.my-wrap>div>div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.my-wrap>div>div>img{
+    width:58px;
+    margin: 0 12px 5px 5px;
+    border-radius: 16px;
+
+}
+
+.flex-nowrap-space{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my-wrap>div>div>h2{
+    font-size: 22px!important;
+    line-height:26px;
+    font-weight: bold;
+    color:#292929;
+    margin-top:7px;
+    font-family: "맑은 고딕";
+    padding: 5px
+}
+.my-wrap>div>div>button{
+    padding: 0 12px;
+    border-radius: 15px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #c62917;
+}
+
+.my-info>div:last-child>div>p:first-child{
+    line-height: 20px;
+    color: #292929;
+    font-size: 14px;
+    font-weight: bold;
+
+}
