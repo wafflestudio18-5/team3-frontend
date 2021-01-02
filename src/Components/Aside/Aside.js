@@ -2,76 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar.js";
 import SearchList from "./SearchList";
+import { CampusList } from "./";
 import "./Aside.css";
 
-const campusList = [
-  {
-    name: "와플대학교",
-    link: "/",
-  },
-  {
-    name: "단풍대학교",
-    link: "/",
-  },
-  {
-    name: "메아리대학교",
-    link: "/",
-  },
-  {
-    name: "스너퍼대학교",
-    link: "/",
-  },
-  {
-    name: "바팩대학교",
-    link: "/",
-  },
-  {
-    name: "다담대학교",
-    link: "/",
-  },
-  {
-    name: "바쿠스대학교",
-    link: "/",
-  },
-  {
-    name: "AAA대학교",
-    link: "/",
-  },
-  {
-    name: "SNUPO대학교",
-    link: "/",
-  },
-  {
-    name: "야조연대학교",
-    link: "/",
-  },
-  {
-    name: " caffe인대학교",
-    link: "/",
-  },
-  {
-    name: "연세대학교",
-    link: "/",
-  },
-  {
-    name: "고려대학교",
-    link: "/",
-  },
-  {
-    name: "카이스트",
-    link: "/",
-  },
-  {
-    name: "서울대학교",
-    link: "/",
-  },
-];
-
 const Aside = () => {
-  const [uniList, setUniList] = useState(campusList);
+  const [uniList, setUniList] = useState(CampusList);
   const onUniChange = (list) => {
     setUniList(list);
   };
+
   return (
     <aside className="aside">
       <div className="login-section bottom-border">
@@ -95,11 +34,11 @@ const Aside = () => {
         <SearchBar
           label="우리 학교 커뮤니티 둘러보기"
           placeHolder="찾으시는 캠퍼스를 검색하세요"
-          list={campusList}
+          list={CampusList}
           onUniChange={onUniChange}
         ></SearchBar>
       </div>
-      <SearchList list={uniList} />
+      <SearchList list={uniList} mobile={false} />
     </aside>
   );
 };

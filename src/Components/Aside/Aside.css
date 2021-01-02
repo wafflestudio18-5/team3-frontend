@@ -106,9 +106,6 @@
     background-color: white;
 }
 
-
-
-
 aside::-webkit-scrollbar{
     display: none;
 }
@@ -117,4 +114,45 @@ aside::-webkit-scrollbar{
   .aside{
       display:none;
   }
+}
+
+.m-aside{
+    display: block;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.m-campusbox{
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    font-weight: 500;
+    width: 100%;
+    font-family: "맑은 고딕";
+    font-size: 15px;
+}
+.m-aside>*{
+    width:100%;
+}
+.m-aside>div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.m-aside>div>img{
+    align-self: center;
+    width:60px;
+    margin-top:20px;
+}
+
+.m-campus-wrap{
+    background-color: white;
+    padding: 0 20px;
+}
+
+@media screen and (max-width:990px){
+    .login-section{
+        padding-bottom: 17px;
+    }
 }
