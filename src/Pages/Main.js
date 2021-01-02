@@ -71,6 +71,8 @@ const Main = () => {
               fontWeight: "bold",
               backgroundColor: "#c62917",
               position: "absolute",
+              top: "50px",
+              left: "10px",
             }}
           >
             메인 페이지로 입장하기
