@@ -1,11 +1,46 @@
+
 .NL1{
     background-color: #f9f9f9;
     height:660px;
-    padding-left: 20%;
     display: relative;
 } 
+.NL2{
+    height:500px
+} 
 
-@media screen and (max-width : 1500px){
+.NL3{
+    background-color: #f9f9f9;
+    height:600px;
+} 
+
+.NL-box{
+    width: 100%;
+    padding-right:300px;
+    z-index: 0;
+    text-align: center;
+}
+.NL2-head-box>p{
+    text-align: center;
+}
+
+.NL2>div{
+    margin-left: 10%;
+}
+
+.NL2>div:first-child{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.NL3>div{
+    margin-left: 10%;
+}
+.NL3>div:first-child{
+    padding-top: 100px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width : 1221px) and (min-width:991px){
     .NL1{
         background-color: #f9f9f9;
         height:660px;
@@ -14,27 +49,37 @@
     }
 }
 
-.NL2{
-    height:400px
-
-} 
-.NL3{
-    background-color: #f9f9f9;
-    height:600px;
-} 
-.NL-box{
-    width: 100%;
-    padding-right:300px;
-    z-index: 0;
-    text-align: center;
-}
-
-@media screen and (max-width:1300px){
+@media only screen and (max-width: 990px){
+    .NL1{
+        padding-left : 0px;
+        margin:auto;
+        background-color: #f9f9f9;
+        height:550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .NL-box{
-        /* width: 100%; */
-        z-index: 10;
-        padding-right: 300px;
-        /* text-align: center; */
+        width: 100%;
+        z-index: 0;
+        padding-right: 0px;
+    }
+    .NL2>div{
+        margin-left: 0%;
+    }
+    
+    .NL2>div:first-child{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .NL3>div{
+        margin-left: 0%;
+    }
+    .NL3>div:first-child{
+        padding-top: 50px;
+        margin-bottom: 50px;
     }
 }
 
@@ -60,8 +105,20 @@ div.img{
 
 .phone{
     position: absolute;
-    top:120px;
+    top:122px;
     box-sizing: border-box;
+}
+
+@media screen and (min-width: 1221px){
+    .phone{
+        left:20%;
+    }
+}
+
+@media screen and (max-width: 1221px)and(min-width:990px){
+    .phone{
+        left:17%;
+    }
 }
 
 div.home{
@@ -88,6 +145,58 @@ div.board{
     background-position: -570px 0px;
     opacity: 0;
     animation: active-init-board 6s infinite;
+}
+
+@media only screen and (max-width: 990px){
+    div.screen {
+        box-sizing: border-box;
+        border: 2px solid #d6d6d6;
+        border-bottom: 0;
+        border-radius: 18px 18px 0 0;
+        background-color: #fff;
+        overflow: hidden;
+        width:184px;
+        height:362px;
+        top: 40px;
+    }
+    .phone{
+        top:150px;
+        box-sizing: border-box;
+    }
+    
+    div.img{
+        background-size:  560px auto;    
+        position: absolute;
+        background-image:url(https://everytime.kr/images/about/screen.png) ;
+        background-repeat: no-repeat;
+    }
+    
+    
+    div.home{
+        top: 0;
+        opacity: 1;
+        width: 180px;
+        height: 362px;
+        background-position: 0px 0px;
+    }
+    
+    div.timetable{
+        top: 0;
+        width: 180px;
+        height: 362px;
+        background-position: -190px 0px;
+        opacity: 0;
+        animation: active-init-timeTable 6s infinite;
+    }
+    
+    div.board{
+        top: 0;
+        width: 180px;
+        height: 362px;
+        background-position: -380px 0px;
+        opacity: 0;
+        animation: active-init-board 6s infinite;
+    }
 }
 @keyframes active-init-timeTable {
     0% {
@@ -128,12 +237,23 @@ div.board{
         opacity: 0;
     }
   }
-  
+@media screen and (min-width: 1222px){
 .NL1-headline{
     position: absolute;
     top:250px;
-    left: 40%;
+    left:25%;
+    margin-left:20%;
 }
+}
+
+@media screen and (max-width: 1222px) and (min-width: 991px){
+    .NL1-headline{
+        position: absolute;
+        top:250px;
+        left:15%;
+        margin-left:20%;
+    }
+    }
 
 .NL-head-black{
     color: #292929;
@@ -149,7 +269,7 @@ div.board{
     text-align: left;
     font-weight: 800;
 }
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1221px) and (min-width:991px){
     .NL-head-black{
         color: #292929;
         line-height: 30px;
@@ -164,12 +284,46 @@ div.board{
         font-weight: 800;
     }
 }
+
+@media only screen and (max-width: 990px){
+    .NL1-headline{
+        position: absolute;
+        top:50px;
+    }
+    .NL-head-black{
+        color: #292929;
+        line-height: 25px;
+        font-size: 18px;
+    }
+    .NL-head-red{
+        position: relative;
+        line-height: 25px;
+        font-size: 18px;    
+        color: #c62917;
+        text-align: center;
+        font-weight: 800;
+
+    }
+}
+
 .app-store{
     position: absolute;
     top:400px;
-    left:40%;
     display: flex;
 }
+
+@media only screen and (min-width: 1221px){
+    .app-store{
+        left:45%;
+    }
+}
+
+@media only screen and (max-width: 1221px)and (min-width: 991px){
+    .app-store{
+        left:34.5%;
+    }
+}
+
 
 .NL-store-img{
     width:150px;
@@ -183,34 +337,44 @@ div.board{
     padding:5px;
 }
 
-
-
-.NL2-head-box>p{
-    text-align: center;
-}
-
-.NL2>div{
-    margin-left: 10%;
-}
-
-.NL2>div:first-child{
-    margin-top: 100px;
-    margin-bottom: 50px;
-}
-
-.NL3>div{
-    margin-left: 10%;
-}
-.NL3>div:first-child{
-    padding-top: 100px;
-    margin-bottom: 50px;
+@media only screen and (max-width: 990px){
+    .app-store{
+        position: absolute;
+        top:120px;
+        display: flex;
+    }
+    .NL-store-img{
+        width:110px;
+        height: 40px;
+        padding:6px;
+        border: 2px solid #d6d6d6;
+        border-radius: 5px;
+    }
 }
 
 
-.NL-descript-font{
+.NL-descript-font>p{
     color: #4c4c4c;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 25px;
+}
+.NL-descript-font>p>strong{
+    font-weight: 800;
+}
+
+@media screen and (max-width:1221px) and (min-width:991px){
+    .NL-descript-font>p{
+        color: #4c4c4c;
+        font-size: 16px;
+        line-height: 25px;
+    }
+}
+@media screen and (max-width: 990px){
+  .NL-descript-font>p{
+    color: #4c4c4c;
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 .NL-figure-wrap{
@@ -226,18 +390,8 @@ div.board{
     height:40px;
     border-right: 2px solid #d6d6d6;
 }
-.NL-figure-box{
-    margin: 15px;
-}
-.NL-figure-box>p>span{
-    font-weight: 700;
-    font-size: 33px;
-}
 
-.NL-unit{
-    font-weight: 600 !important;
-    font-size: 20px !important;
-}
+
 
 .NL-icon-wrap{
     display: flex;
@@ -252,6 +406,7 @@ div.board{
     height:80px;
     position: relative;
 }
+
 .NL-icon-img{
     position: absolute;
     width:32px;
@@ -311,4 +466,36 @@ div.board{
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+.mobile-header{
+    display:none;
+}
+
+
+@media screen and (max-width:990px){
+.mobile-header{
+    width:100%;
+    background-color: white;
+    display:flex;
+    justify-content: space-between;
+    padding: 2px 10px;
+    height: 45px;
+    border-bottom: 1px solid #d6d6d6;
+    align-items: center;
+}
+
+.mobile-header>button{
+    padding: 0 4px;
+    border-radius: 3px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #c62917;
+    height: 30px;
+  }
+  .mobile-header>img{
+      width:20px;
+  }
 }
