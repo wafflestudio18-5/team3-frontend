@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Input, Stack, Button, Checkbox, HStack, Text } from "@chakra-ui/react";
+import { Input, Stack, Button, Checkbox, HStack } from "@chakra-ui/react";
+
 import { Link } from "react-router-dom";
 import "./LoginForm.css";
 
@@ -18,13 +19,13 @@ export default function LoginForm() {
     <Stack spacing={1} width="400px">
       <Input
         size="md"
-        placeHolder="아이디"
+        placeholder="아이디"
         value={input.id}
         onChange={onInputChange}
       />
       <Input
         size="md"
-        placeHolder="비밀번호"
+        placeholder="비밀번호"
         value={input.password}
         onChange={onInputChange}
       />

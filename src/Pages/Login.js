@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Box, Image, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 import LoginForm from "../Components/LoginForm/LoginFom";
 import Footer from "../Components/Footer/Footer.js";
@@ -18,7 +18,7 @@ const Login = () => {
         </Link>
         <LoginForm />
       </Stack>
-      <Footer />
+      <Footer page="login" />
     </>
   );
 };

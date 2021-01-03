@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-const Footer = () => {
+const Footer = ({ page }) => {
+  const ref = useRef();
+  useEffect(() => {
+    switch (page) {
+      case "NL":
+        ref.current.className = "footer footer-NL";
+        break;
+      case "login":
+        ref.current.className = "footer footer-login";
+        break;
+      case "my":
+        ref.current.className = "footer";
+        break;
+      default:
+        ref.current.className = "footer footer-main";
+        break;
+    }
+  }, [page]);
   return (
-    <footer className="footer">
+    <footer className="footer" ref={ref}>
       <ul>
-        <li>
+        <li className="">
           <Link to="" className="pad">
             이용약관
           </Link>
