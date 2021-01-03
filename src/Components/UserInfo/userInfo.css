@@ -1,0 +1,18 @@
+.info-header-font{
+    font-size: 18px!important;
+    line-height:26px;
+    font-weight: bold;
+    color:#292929;
+    margin-top:10px;
+    font-family: "맑은 고딕";
+    padding: 5px
+}
+
+.info-detail-font{
+    margin-top:20px;
+    padding:5px;
+    line-height:24px;
+    color:#292929;
+    font-size: 16px;
+    font-family: "맑은 고딕";
+}
