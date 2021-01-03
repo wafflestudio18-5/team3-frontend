@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useMemo } from "react";
+import React, { useState, useContext, createContext } from "react";
 import { useHistory } from "react-router-dom";
 const defaultData = {
   user_id: "",
@@ -38,17 +38,13 @@ const RegisterProvider = ({ children }) => {
     history.push("../");
   };
 
-  const termState = useMemo(
-    () => ({
-      ...defaultData,
-      setUniYear,
-      setUserInfo,
-    }),
-    [setUniYear, setUserInfo]
-  );
+  const termState = {
+    ...defaultData,
+    setUniYear,
+    setUserInfo,
+  };
 
   const [state, setState] = useState(termState);
-  console.log(state.year);
   return (
     <RegisterContext.Provider value={state}>
       {children}

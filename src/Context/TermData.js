@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useMemo } from "react";
+import React, { useState, useContext, createContext } from "react";
 import { useHistory } from "react-router-dom";
 const defaultList = {
   terms: [
@@ -116,16 +116,14 @@ const TermProvider = ({ children }) => {
 
   const checked = new Array(6).fill(false);
 
-  const termState = useMemo(
-    () => ({
-      ...defaultList,
-      checkAll,
-      checkTerm,
-      onCertificateClick,
-      checked,
-    }),
-    [checkAll, checkTerm, onCertificateClick, checked]
-  );
+  const termState = {
+    ...defaultList,
+    checkAll,
+    checkTerm,
+    onCertificateClick,
+    checked,
+  };
+
   const [state, setState] = useState(termState);
 
   return <TermContext.Provider value={state}>{children}</TermContext.Provider>;

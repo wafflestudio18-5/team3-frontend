@@ -3,12 +3,12 @@ import React from "react";
 import "./Aside.css";
 
 const SearchList = ({ list }) => {
-  console.log(list.length);
   const renderedList = list.map((item, index) => {
     return (
       <Link to={item.link} key={index}>
         <div className="bottom-border campusbox">
-          <span className="campusbox">{item.name}</span>
+          <span>{item.name}</span>
+          <span>1명</span>
         </div>
       </Link>
     );
