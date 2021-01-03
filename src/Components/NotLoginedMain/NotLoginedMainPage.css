@@ -5,7 +5,7 @@
     display: relative;
 } 
 .NL2{
-    height:400px
+    height:500px
 } 
 
 .NL3{
@@ -466,4 +466,36 @@ div.board{
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+.mobile-header{
+    display:none;
+}
+
+
+@media screen and (max-width:990px){
+.mobile-header{
+    width:100%;
+    background-color: white;
+    display:flex;
+    justify-content: space-between;
+    padding: 2px 10px;
+    height: 45px;
+    border-bottom: 1px solid #d6d6d6;
+    align-items: center;
+}
+
+.mobile-header>button{
+    padding: 0 4px;
+    border-radius: 3px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #c62917;
+    height: 30px;
+  }
+  .mobile-header>img{
+      width:20px;
+  }
 }
