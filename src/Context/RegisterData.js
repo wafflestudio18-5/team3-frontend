@@ -1,5 +1,6 @@
 import React, { useState, useContext, createContext } from "react";
 import { useHistory } from "react-router-dom";
+
 const defaultData = {
   user_id: "",
   nickname: "",

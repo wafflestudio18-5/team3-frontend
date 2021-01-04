@@ -14,10 +14,20 @@
     }
 }
 @media screen and (max-width: 990px){
+    .NL-figure-box{
+      display: flex;
+      flex-direction: row-reverse;
+      width:250px;
+      justify-content: space-between;
+    }
+    
     .NL-figure>span{
         line-height: 36px;
         font-size: 28px;
     };
+
+
+    
     .NL-unit{
         line-height: 20px;
         font-weight: 800 !important;

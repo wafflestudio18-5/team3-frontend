@@ -5,4 +5,5 @@ import Login from "./Login";
 import Post from "./Post";
 import { Register } from "./Register";
 import LoginedMain from "./LoginedMain";
+
 export { Board, UserInfo, Main, Login, Post, Register, LoginedMain };
