@@ -3,7 +3,7 @@ import { Container } from "@chakra-ui/react";
 import "./InfoForm.css";
 import { checkFunctions, defaultValid } from "./CheckFunctions";
 import { useRegisterContext } from "../../Context/RegisterData";
-import { loginUser, registerUser } from "../../Api/UserApi";
+import { loginUser, registerUser, checkUserProperty } from "../../Api/UserApi";
 
 const defaultInput = {
   user_id: "",
@@ -20,7 +20,7 @@ const InfoForm = () => {
   const [validList, setValidList] = useState(defaultValid);
   const { user_id, userName, password, samePw, email, nickName, phone } = input;
 
-  const { setUserInfo, isPossibleUserProp, info } = useRegisterContext();
+  const { setUserInfo, info, errMsg } = useRegisterContext();
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +41,16 @@ const InfoForm = () => {
         return false;
       }
     return true;
+  };
+
+  const isPossibleUserProp = (params) => {
+    checkUserProperty(params)
+      .then(() => {
+        loginUser(registerUser(info));
+      })
+      .catch((err) => {
+        alert(errMsg[err.response.data["ERR"].split(" ")[1]]);
+      });
   };
 
   const setIcon = (x) => {
@@ -156,7 +166,12 @@ const InfoForm = () => {
           className="red-button"
           onClick={() => {
             if (checkAllInputValid(input)) {
-              if (isPossibleUserProp(info)) loginUser(registerUser(info));
+              isPossibleUserProp({
+                username: info.username,
+                nickName: info.nickname,
+                phone: info.phone,
+                email: info.email,
+              });
             }
           }}
         >
