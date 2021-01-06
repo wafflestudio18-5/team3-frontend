@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./registerForm.css";
 import { Checkbox } from "@chakra-ui/react";
-import { useTermContext } from "../../Context/TermData";
+import { useTermContext } from "../../Context/";
 
 const AgreementBox = ({ term, checked, ind }) => {
   const { checkTerm } = useTermContext();
