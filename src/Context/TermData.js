@@ -107,7 +107,7 @@ const TermProvider = ({ children }) => {
   };
 
   const onCertificateClick = (checked) => {
-    if (checked.find((i) => i === false) !== undefined) {
+    if (checked.find((i, ind) => i === false && ind !== 3) !== undefined) {
       alert("서비스 이용 약관에 동의해주세요");
       return;
     }
