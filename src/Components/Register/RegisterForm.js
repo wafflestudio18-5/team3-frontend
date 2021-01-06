@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import "./registerForm.css";
 import { UniMatchedList } from "./";
 import { useRegisterContext } from "../../Context/RegisterData";
+import { useHistory } from "react-router-dom";
 const yaerList = new Array(14).fill(2021);
 
 const defaultInput = {
@@ -14,6 +15,7 @@ const RegisterForm = () => {
   const [input, setInput] = useState(defaultInput);
   const [searchUni, setSearchUni] = useState("");
   const ref = useRef();
+  const history = useHistory();
   const { setUniYear } = useRegisterContext();
 
   const { year, university } = input;
@@ -23,11 +25,19 @@ const RegisterForm = () => {
       ...input,
       year: ref.current.options[ref.current.selectedIndex].value,
     });
+    setUniYear({
+      ...input,
+      year: Number(ref.current.options[ref.current.selectedIndex].value),
+    });
   };
 
-  const setUniversity = (uni) => {
-    setInput({ ...input, university: uni });
-    setSearchUni(uni);
+  const setUniversity = (university) => {
+    setInput({ ...input, university });
+    setSearchUni(university);
+    setUniYear({
+      ...input,
+      university,
+    });
   };
 
   const checkFormFulfilled = () => {
@@ -100,7 +110,9 @@ const RegisterForm = () => {
           mt="4"
           mb="4"
           onClick={() => {
-            if (checkFormFulfilled()) setUniYear(input);
+            if (checkFormFulfilled()) {
+              history.push("/register/agreement");
+            }
           }}
         >
           다음
