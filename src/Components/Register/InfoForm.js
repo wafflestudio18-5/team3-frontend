@@ -3,6 +3,7 @@ import { Container } from "@chakra-ui/react";
 import "./InfoForm.css";
 import { checkFunctions, defaultValid } from "./CheckFunctions";
 import { useRegisterContext } from "../../Context/RegisterData";
+import { loginUser, registerUser } from "../../Api/UserApi";
 
 const defaultInput = {
   user_id: "",
@@ -11,14 +12,15 @@ const defaultInput = {
   samePw: "",
   email: "",
   nickName: "",
+  phone: "",
 };
 
 const InfoForm = () => {
   const [input, setInput] = useState(defaultInput);
   const [validList, setValidList] = useState(defaultValid);
-  const { user_id, userName, password, samePw, email, nickName } = input;
+  const { user_id, userName, password, samePw, email, nickName, phone } = input;
 
-  const { setUserInfo } = useRegisterContext();
+  const { setUserInfo, isPossibleUserProp, info } = useRegisterContext();
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,6 +31,7 @@ const InfoForm = () => {
         ...validList,
         [name]: cond,
       });
+    setUserInfo({ ...input, [name]: value });
   };
 
   const checkAllInputValid = (input) => {
@@ -67,6 +70,18 @@ const InfoForm = () => {
             className={setIcon(validList.userName)}
           ></input>
           {validList.userName < 0 ? <p>2자 이상 입력하세요</p> : null}
+        </div>
+        <div>
+          <label>전화번호</label>
+          <input
+            placeholder="전화번호"
+            value={phone}
+            name="phone"
+            onChange={onInputChange}
+            maxLength="11"
+            className={setIcon(validList.phone)}
+          ></input>
+          {validList.phone < 0 ? <p>올바른 전화번호를 입력하세요</p> : null}
         </div>
         <div>
           <label>아이디</label>
@@ -141,7 +156,7 @@ const InfoForm = () => {
           className="red-button"
           onClick={() => {
             if (checkAllInputValid(input)) {
-              setUserInfo(input);
+              if (isPossibleUserProp(info)) loginUser(registerUser(info));
             }
           }}
         >

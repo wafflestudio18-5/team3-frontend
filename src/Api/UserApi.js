@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./api";
 
 // const BASEURL = "http://api.waverytime.shop/user/";
 // axios.defaults.baseURL = BASEURL;
@@ -6,24 +6,19 @@ import axios from "axios";
 // axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 
 const registerUser = async (body) => {
-  const response = await axios.post("/", body);
+  const response = await axios.post("/user/", body);
   return response;
 };
 
 const checkUserProperty = async (params) => {
-  const response = await axios.get("", {
+  const response = await axios.get("/user/check/", {
     params,
   });
   return response;
 };
 
 const loginUser = async (body) => {
-  const response = await axios.put(
-    "/user/login/",
-
-    body
-  );
-  console.log(response);
+  const response = await axios.put("/user/login/", body);
   return response;
 };
 const logoutUser = async (token) => {
