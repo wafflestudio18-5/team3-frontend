@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 const defaultData = {
@@ -13,6 +13,7 @@ const defaultData = {
   university: "",
   setUniYear: () => {},
   setUserInfo: () => {},
+  checkUniYear: () => {},
 };
 
 const RegisterContext = createContext(defaultData);
@@ -22,8 +23,12 @@ const RegisterProvider = ({ children }) => {
 
   const setUniYear = ({ university, year }) => {
     setState((state) => ({ ...state, university, year }));
-    console.log("good");
-    history.push("/register/info");
+    history.push("/register/agreement");
+  };
+
+  const checkUniYear = (university) => {
+    if (!university.length) return false;
+    return true;
   };
 
   const setUserInfo = ({ userName, user_id, password, email, nickname }) => {
@@ -35,17 +40,17 @@ const RegisterProvider = ({ children }) => {
       email,
       nickname,
     }));
-
-    history.push("../");
   };
 
   const termState = {
     ...defaultData,
     setUniYear,
     setUserInfo,
+    checkUniYear,
   };
 
   const [state, setState] = useState(termState);
+
   return (
     <RegisterContext.Provider value={state}>
       {children}

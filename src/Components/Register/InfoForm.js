@@ -94,11 +94,10 @@ const InfoForm = () => {
             placeholder="비밀번호"
             value={password}
             name="password"
-            id="pw"
             onChange={onInputChange}
             maxLength="20"
             type="password"
-            className={setIcon(validList.password)}
+            className={"password " + setIcon(validList.password)}
           ></input>
           {validList.password < 0 ? <p>4자 이상 입력하세요</p> : null}
 
@@ -106,11 +105,10 @@ const InfoForm = () => {
             placeholder="비밀번호 확인"
             value={samePw}
             name="samePw"
-            id="pw"
             type="password"
             maxLength="20"
             onChange={onInputChange}
-            className={setIcon(validList.samePw)}
+            className={"password " + setIcon(validList.samePw)}
           ></input>
           {validList.samePw < 0 ? <p>비밀번호가 일치하지 않습니다.</p> : null}
         </div>
@@ -141,9 +139,11 @@ const InfoForm = () => {
         </div>
         <button
           className="red-button"
-          onClick={() =>
-            checkAllInputValid(input) ? setUserInfo(input) : null
-          }
+          onClick={() => {
+            if (checkAllInputValid(input)) {
+              setUserInfo(input);
+            }
+          }}
         >
           회원가입
         </button>
