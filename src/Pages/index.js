@@ -1,8 +1,5 @@
 import Board from "./Board";
-<<<<<<< HEAD
-import UserInfo from "./UserInfo";
-=======
->>>>>>> UserInfo2
+
 import Main from "./Main";
 import Login from "./Login";
 import Post from "./Post";
