@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import routes from "./Routes";
-
+import { CookiesProvider } from "react-cookie";
 import "./App.css";
 
 function App() {
   return (
-    <>
+    <CookiesProvider>
       <Switch>
         <Route
           exact
@@ -30,7 +30,7 @@ function App() {
         <Route path={routes.post.path} component={routes.post.component} />
         <Redirect path="*" to={routes.main.path} />
       </Switch>
-    </>
+    </CookiesProvider>
   );
 }
 

@@ -2,7 +2,7 @@
   "name": "team3-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://api.waverytime.shop",
+  "proxy": "http://api.waverytime.shop",
   "dependencies": {
     "@chakra-ui/icons": "^1.0.1",
     "@chakra-ui/react": "^1.0.1",
@@ -16,6 +16,7 @@
     "framer-motion": "^2.9.4",
     "http-proxy-middleware": "^1.0.6",
     "react": "^17.0.1",
+    "react-cookie": "^4.0.3",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
