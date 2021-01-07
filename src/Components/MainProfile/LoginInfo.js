@@ -38,7 +38,7 @@ function LoginInfo() {
           <Button
             size="xs"
             onClick={() => {
-              // logoutCookie();
+              logoutCookie();
               history.push("/");
             }}
           >
