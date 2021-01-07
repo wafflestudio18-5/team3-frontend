@@ -1,16 +1,29 @@
 import React, { useState, useContext, createContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { loginUser, updateUser } from '../Api/UserApi';
+import { loginUser, sendEmail, updateUser, logoutUser } from '../Api/UserApi';
 const defaultList = {
   logined: false,
-  user: {},
+  user: {
+    username: '',
+    password: '',
+    last_name: '',
+    nickname: '',
+    university: '',
+    year: 2019,
+    phone: '',
+    email: '',
+    is_verified: false,
+    last_login: '',
+    date_joined: '',
+    token: '',
+  },
   logoutCookie: () => {},
-  consoleCookie: () => {},
   login: () => {},
   logout: () => {},
   isLogined: () => {},
   updateUserInfo: () => {},
+  emailAuth: () => {},
 };
 
 const LoginContext = createContext(defaultList);
@@ -28,10 +41,6 @@ const LoginProvider = ({ children }) => {
     removeCookie('waverytime');
   };
 
-  const consoleCookie = () => {
-    // console.log(cookie);
-  };
-
   const isLogined = () => {
     return cookie['waverytime'] !== undefined;
   };
@@ -41,8 +50,6 @@ const LoginProvider = ({ children }) => {
       .then(({ data }) => {
         setState((state) => ({ ...state, info: true }));
         loginCookie(data);
-
-        consoleCookie();
         history.push('/');
       })
       .catch((err) => {
@@ -52,7 +59,7 @@ const LoginProvider = ({ children }) => {
   };
   const logout = () => {
     logoutCookie();
-    history.push('/');
+    logoutUser(state.user.token).then(() => history.push('/'));
   };
 
   const updateUserInfo = (body, token) => {
@@ -67,18 +74,32 @@ const LoginProvider = ({ children }) => {
         history.push('/my');
       })
       .catch((err) => {
+        alert('이미 존재하는 이메일입니다.');
         console.log(err.reponse);
       });
+  };
+
+  const emailAuth = (token) => {
+    sendEmail(token)
+      .then((_) => {
+        setCookie('waverytime', { ...cookie['waverytime'], is_verified: true }, { path: '/' });
+        setState((state) => ({
+          ...state,
+          user: { ...state.user, is_verified: true },
+        }));
+        alert('이메일이 발송되었습니다. 이메일의 링크를 클릭하십시오.');
+      })
+      .catch((err) => console.log(err.response));
   };
 
   const termState = {
     ...defaultList,
     login,
     logoutCookie,
-    consoleCookie,
     isLogined,
     logout,
     updateUserInfo,
+    emailAuth,
   };
 
   useEffect(() => {
