@@ -59,12 +59,15 @@ const LoginProvider = ({ children }) => {
     updateUser(body, token)
       .then(({ data }) => {
         setCookie('waverytime', data, { path: '/' });
-        setState((state) => data);
+        setState((state) => ({
+          ...state,
+          user: data,
+        }));
         alert('변경이 완료되었습니다.');
         history.push('/my');
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err.reponse);
       });
   };
 
