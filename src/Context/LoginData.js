@@ -4,9 +4,11 @@ import { loginUser } from "../Api/UserApi";
 import { useHistory } from "react-router-dom";
 const defaultList = {
   logined: false,
+  user: {},
   logoutCookie: () => {},
   consoleCookie: () => {},
   login: () => {},
+  logout: () => {},
   isLogined: () => {},
 };
 
@@ -16,6 +18,7 @@ const LoginProvider = ({ children }) => {
   const [cookie, setCookie, removeCookie] = useCookies(["waverytime"]);
   const history = useHistory();
   const loginCookie = (info) => {
+    setState((state) => ({ ...state, user: info }));
     setCookie("waverytime", info, { path: "/" });
   };
 
@@ -45,13 +48,17 @@ const LoginProvider = ({ children }) => {
         alert("아이디나 비밀번호를 제대로 입력해주세요");
       });
   };
-
+  const logout = () => {
+    logoutCookie();
+    history.push("/");
+  };
   const termState = {
     ...defaultList,
     login,
     logoutCookie,
     consoleCookie,
     isLogined,
+    logout,
   };
 
   const [state, setState] = useState(termState);
