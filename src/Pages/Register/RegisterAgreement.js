@@ -51,10 +51,7 @@ const RegisterAgreement = () => {
         mb="10px"
         onClick={() => onCertificateClick(checked)}
       >
-        휴대폰 인증
-      </Button>
-      <Button colorScheme="gray" variant="solid" width="100%">
-        아이핀 인증
+        회원 정보 입력
       </Button>
     </Container>
   );

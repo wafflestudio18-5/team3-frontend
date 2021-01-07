@@ -52,11 +52,11 @@
     font-size: 12px;
     margin-top:24px;
 }
-#pw{
+.pw{
   font-family:"돋움"
 }
 
-#pw::placeholder{
+.pw::placeholder{
     font-size:16px;
     font-family: "나눔스퀘어";
 }

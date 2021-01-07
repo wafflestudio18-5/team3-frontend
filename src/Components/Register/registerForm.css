@@ -4,7 +4,7 @@
 }
 
 .term-descript-box{
-    height:108px;
+    max-height:100px;
     padding: 8px;
     overflow: auto;
     background-color: #f9f9f9;
