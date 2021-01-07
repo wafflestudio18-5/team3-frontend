@@ -1,14 +1,9 @@
-import { useCookies } from "react-cookie";
+import { NotLoginedMain } from "../Components/NotLoginedMain";
 
-const NotLoginedMain = () => {
-  const [cookie, setCookies] = useCookies(["waverytime"]);
-
+const NotLoginedMainPage = () => {
   return (
     <>
       <button
-        // onClick={() =>setCookies("waverytime",{
-
-        // }) }
         style={{
           padding: "0 12px",
           borderRadius: "15px",
@@ -29,4 +24,4 @@ const NotLoginedMain = () => {
   );
 };
 
-export default NotLoginedMain;
+export default NotLoginedMainPage;
