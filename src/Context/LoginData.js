@@ -1,7 +1,7 @@
-import React, { useState, useContext, createContext } from "react";
-import { useCookies } from "react-cookie";
-import { loginUser } from "../Api/UserApi";
-import { useHistory } from "react-router-dom";
+import React, { useState, useContext, createContext } from 'react';
+import { useCookies } from 'react-cookie';
+import { loginUser, updateUser } from '../Api/UserApi';
+import { useHistory } from 'react-router-dom';
 const defaultList = {
   logined: false,
   user: {},
@@ -10,20 +10,21 @@ const defaultList = {
   login: () => {},
   logout: () => {},
   isLogined: () => {},
+  updateUserInfo: () => {},
 };
 
 const LoginContext = createContext(defaultList);
 
 const LoginProvider = ({ children }) => {
-  const [cookie, setCookie, removeCookie] = useCookies(["waverytime"]);
+  const [cookie, setCookie, removeCookie] = useCookies(['waverytime']);
   const history = useHistory();
   const loginCookie = (info) => {
     setState((state) => ({ ...state, user: info }));
-    setCookie("waverytime", info, { path: "/" });
+    setCookie('waverytime', info, { path: '/' });
   };
 
   const logoutCookie = () => {
-    removeCookie("waverytime");
+    removeCookie('waverytime');
   };
 
   const consoleCookie = () => {
@@ -31,7 +32,7 @@ const LoginProvider = ({ children }) => {
   };
 
   const isLogined = () => {
-    return cookie["waverytime"] !== undefined;
+    return cookie['waverytime'] !== undefined;
   };
 
   const login = ({ username, password }) => {
@@ -41,17 +42,31 @@ const LoginProvider = ({ children }) => {
         loginCookie(data);
 
         consoleCookie();
-        history.push("/");
+        history.push('/');
       })
       .catch((err) => {
         console.clear();
-        alert("아이디나 비밀번호를 제대로 입력해주세요");
+        alert('아이디나 비밀번호를 제대로 입력해주세요');
       });
   };
   const logout = () => {
     logoutCookie();
-    history.push("/");
+    history.push('/');
   };
+
+  const updateUserInfo = (body, token) => {
+    updateUser(body, token)
+      .then(({ data }) => {
+        setCookie('waverytime', data, { path: '/' });
+        setState((state) => data);
+        alert('변경이 완료되었습니다.');
+        history.push('/my');
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  };
+
   const termState = {
     ...defaultList,
     login,
@@ -59,13 +74,12 @@ const LoginProvider = ({ children }) => {
     consoleCookie,
     isLogined,
     logout,
+    updateUserInfo,
   };
 
   const [state, setState] = useState(termState);
 
-  return (
-    <LoginContext.Provider value={state}>{children}</LoginContext.Provider>
-  );
+  return <LoginContext.Provider value={state}>{children}</LoginContext.Provider>;
 };
 
 const useLoginContext = () => useContext(LoginContext);
