@@ -29,9 +29,10 @@
 }
 
 .register-info-form>div{
-  margin-top: 15px;
+  /* margin-top: 15px; */
   display:flex;
   flex-direction: row;
+  width:100%;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -42,12 +43,14 @@
     font-size: 12px;
     font-weight: bold;
     margin-left: 5px;
+    margin-top:24px;
 }
 
 .register-info-form>div>span{
     line-height: 20px;
     color: #a6a6a6;
     font-size: 12px;
+    margin-top:24px;
 }
 #pw{
   font-family:"돋움"
@@ -57,7 +60,14 @@
     font-size:16px;
     font-family: "나눔스퀘어";
 }
+.password{
+        font-family:"돋움"
+}
 
+.password::placeholder{
+    font-size:16px;
+    font-family: "나눔스퀘어";
+}
 .red-button{
     display: block;
     margin-top: 24px;
@@ -77,5 +87,5 @@
 
 .error{
     background-image:url(../../Images/register/register.input.caution.png);
-
 }
+

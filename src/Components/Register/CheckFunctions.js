@@ -14,7 +14,7 @@ const checkFunctions = {
 
   checkpassword: (pw) => {
     if (!pw.length) return 0;
-    if (pw.length < 4) return -1;
+    else if (pw.length < 4) return -1;
     return 1;
   },
   checksamePw: (checkPw, pw) => {
@@ -32,6 +32,9 @@ const checkFunctions = {
     if (nickName.length === 0) return 0;
     if (nickName.length === 1) return -1;
     return 1;
+  },
+  checkcurrPw: (currPw) => {
+    return currPw.length;
   },
 };
 
