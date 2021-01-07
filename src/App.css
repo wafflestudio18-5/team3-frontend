@@ -286,6 +286,13 @@ h2 {
   background-color: #f9f9f9;
 }
 
+.middle-flex-box{
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+  width:100%;
+  margin-top:10%;
+}
 
 
 

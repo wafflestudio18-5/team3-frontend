@@ -1,8 +1,17 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Container } from "@chakra-ui/react";
 import "./InfoForm.css";
 import { checkFunctions, defaultValid } from "./CheckFunctions";
 import { useRegisterContext } from "../../Context/RegisterData";
+import { registerUser, checkUserProperty } from "../../Api/UserApi";
+
+const errMsg = {
+  username: "이미 존재하는 아이디입니다.",
+  phone: "가입된 전화번호입니다.",
+  email: "가입된 이메일입니다.",
+  nickname: "이미 존재하는 닉네임입니다.",
+};
 
 const defaultInput = {
   user_id: "",
@@ -11,15 +20,16 @@ const defaultInput = {
   samePw: "",
   email: "",
   nickName: "",
+  phone: "",
 };
 
 const InfoForm = () => {
+  const history = useHistory();
   const [input, setInput] = useState(defaultInput);
   const [validList, setValidList] = useState(defaultValid);
-  const { user_id, userName, password, samePw, email, nickName } = input;
+  const { user_id, userName, password, samePw, email, nickName, phone } = input;
 
-  const { setUserInfo } = useRegisterContext();
-
+  const { setUserInfo, info } = useRegisterContext();
   const onInputChange = (e) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
@@ -29,6 +39,7 @@ const InfoForm = () => {
         ...validList,
         [name]: cond,
       });
+    setUserInfo({ ...input, [name]: value });
   };
 
   const checkAllInputValid = (input) => {
@@ -38,6 +49,19 @@ const InfoForm = () => {
         return false;
       }
     return true;
+  };
+
+  const isPossibleUserProp = (params) => {
+    checkUserProperty(params)
+      .then(() => {
+        registerUser(info).then(() => {
+          alert("회원가입이 완료되었습니다.");
+          history.push("/login");
+        });
+      })
+      .catch((err) => {
+        alert(errMsg[err.response.data["ERR"].split(" ")[1]]);
+      });
   };
 
   const setIcon = (x) => {
@@ -69,6 +93,18 @@ const InfoForm = () => {
           {validList.userName < 0 ? <p>2자 이상 입력하세요</p> : null}
         </div>
         <div>
+          <label>전화번호</label>
+          <input
+            placeholder="전화번호"
+            value={phone}
+            name="phone"
+            onChange={onInputChange}
+            maxLength="11"
+            className={setIcon(validList.phone)}
+          ></input>
+          {validList.phone < 0 ? <p>올바른 전화번호를 입력하세요</p> : null}
+        </div>
+        <div>
           <label>아이디</label>
           <span>영문,숫자,4~20자</span>
           <input
@@ -94,11 +130,10 @@ const InfoForm = () => {
             placeholder="비밀번호"
             value={password}
             name="password"
-            id="pw"
             onChange={onInputChange}
             maxLength="20"
             type="password"
-            className={setIcon(validList.password)}
+            className={"password " + setIcon(validList.password)}
           ></input>
           {validList.password < 0 ? <p>4자 이상 입력하세요</p> : null}
 
@@ -106,11 +141,10 @@ const InfoForm = () => {
             placeholder="비밀번호 확인"
             value={samePw}
             name="samePw"
-            id="pw"
             type="password"
             maxLength="20"
             onChange={onInputChange}
-            className={setIcon(validList.samePw)}
+            className={"password " + setIcon(validList.samePw)}
           ></input>
           {validList.samePw < 0 ? <p>비밀번호가 일치하지 않습니다.</p> : null}
         </div>
@@ -141,9 +175,16 @@ const InfoForm = () => {
         </div>
         <button
           className="red-button"
-          onClick={() =>
-            checkAllInputValid(input) ? setUserInfo(input) : null
-          }
+          onClick={() => {
+            if (checkAllInputValid(input)) {
+              isPossibleUserProp({
+                username: info.username,
+                nickName: info.nickname,
+                phone: info.phone,
+                email: info.email,
+              });
+            }
+          }}
         >
           회원가입
         </button>

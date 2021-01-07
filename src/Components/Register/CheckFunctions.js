@@ -14,7 +14,7 @@ const checkFunctions = {
 
   checkpassword: (pw) => {
     if (!pw.length) return 0;
-    if (pw.length < 4) return -1;
+    else if (pw.length < 4) return -1;
     return 1;
   },
   checksamePw: (checkPw, pw) => {
@@ -33,6 +33,14 @@ const checkFunctions = {
     if (nickName.length === 1) return -1;
     return 1;
   },
+  checkcurrPw: (currPw) => {
+    return currPw.length;
+  },
+  checkphone: (phone) => {
+    if (phone.length === 0) return 0;
+    if (phone.length < 10 || /[^0-9]/.test(phone)) return -1;
+    return 1;
+  },
 };
 
 const defaultValid = {
@@ -42,6 +50,7 @@ const defaultValid = {
   samePw: 0,
   email: 0,
   nickName: 0,
+  phone: 0,
 };
 
 export { checkFunctions, defaultValid };

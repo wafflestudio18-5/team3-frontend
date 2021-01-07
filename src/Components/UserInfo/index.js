@@ -1,3 +1,5 @@
 import InfoData from "./InfoData";
 import InfoWrapper from "./InfoWrapper";
-export { InfoWrapper, InfoData };
+import AuthMethod from "./AuthMethod";
+import AuthWrapper from "./AuthWrapper";
+export { InfoWrapper, InfoData, AuthMethod, AuthWrapper };

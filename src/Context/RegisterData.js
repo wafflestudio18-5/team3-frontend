@@ -1,50 +1,78 @@
 import React, { useState, useContext, createContext } from "react";
-import { useHistory } from "react-router-dom";
+import { checkUserProperty } from "../Api/UserApi";
+
 const defaultData = {
-  user_id: "",
-  nickname: "",
-  phone: "",
-  year: 0,
-  password: "",
-  checkPw: "",
-  userName: "",
-  email: "",
-  university: "",
+  info: {
+    username: "", //아이디
+    nickname: "", // 닉네임
+    phone: "", //핸드폰
+    year: 0,
+    password: "",
+    last_name: "", //이름
+    email: "", //이메일
+    university: "",
+    is_verified: false,
+  },
   setUniYear: () => {},
   setUserInfo: () => {},
+  checkUniYear: () => {},
 };
 
 const RegisterContext = createContext(defaultData);
 
 const RegisterProvider = ({ children }) => {
-  const history = useHistory();
-
   const setUniYear = ({ university, year }) => {
-    setState((state) => ({ ...state, university, year }));
-    console.log("good");
-    history.push("/register/info");
-  };
-
-  const setUserInfo = ({ userName, user_id, password, email, nickname }) => {
     setState((state) => ({
       ...state,
-      userName,
-      user_id,
-      password,
-      email,
-      nickname,
+      info: {
+        ...state.info,
+        university,
+        year: Number(year),
+      },
     }));
+  };
 
-    history.push("../");
+  const checkUniYear = (university) => {
+    if (!university.length) return false;
+    return true;
+  };
+
+  const setUserInfo = ({
+    userName,
+    user_id,
+    password,
+    email,
+    nickName,
+    phone,
+  }) => {
+    setState((state) => ({
+      ...state,
+      info: {
+        ...state.info,
+        last_name: userName,
+        username: user_id,
+        password,
+        email,
+        nickname: nickName,
+        phone:
+          `${phone.slice(0, 3)}` +
+          `-` +
+          `${phone.slice(3, phone.length - 4)}` +
+          `-` +
+          `${phone.slice(phone.length - 4, phone.length)}`,
+      },
+    }));
   };
 
   const termState = {
     ...defaultData,
     setUniYear,
     setUserInfo,
+    checkUniYear,
   };
 
   const [state, setState] = useState(termState);
+
   return (
     <RegisterContext.Provider value={state}>
       {children}

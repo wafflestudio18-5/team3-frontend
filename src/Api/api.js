@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "",
+  baseURL: "http://api.waverytime.shop/",
   params: {},
 });

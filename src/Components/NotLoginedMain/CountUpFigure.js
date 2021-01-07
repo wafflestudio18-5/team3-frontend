@@ -26,7 +26,7 @@ const CountUpFigure = ({ figure }) => {
           </React.Fragment>
         ))}
       </p>
-      <p>{description}</p>
+      <p className="aaa">{description}</p>
     </div>
   );
 };
