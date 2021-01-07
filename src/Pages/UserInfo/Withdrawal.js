@@ -1,31 +1,42 @@
-import { MidWrapper, Input, checkFunctions, Footer } from "../../Components/";
 import { useState } from "react";
-import { NavBar } from "../../Components";
-const defaultInput = {
-  email: "",
-  currPw: "",
-};
-const defaultValid = {
-  email: 0,
-  currPw: 0,
-};
+import { useHistory } from "react-router-dom";
+import { MidWrapper, Input, Footer, NavBar } from "../../Components/";
+import { deleteUser, loginUser } from "../../Api/UserApi";
+import { useLoginContext } from "../../Context/LoginData";
 
 const Withdrawal = () => {
-  const [input, setInput] = useState(defaultInput);
-  const [valid, setValid] = useState(defaultValid);
-  const { email, currPw } = input;
+  const history = useHistory();
+
+  const [input, setInput] = useState("");
+
+  const { user, logoutCookie } = useLoginContext();
 
   const onChange = (e) => {
-    const { name, value } = e.target;
-    setInput({ ...input, [name]: value });
-    const cond = checkFunctions[`check${name}`](value);
-    if (cond)
-      setValid({
-        ...valid,
-        [name]: cond,
-      });
+    setInput(e.target.value);
   };
 
+  const withdraw = () => {
+    if (input.length === 0) {
+      alert("비밀번호를 입력해주세요");
+      return;
+    }
+    loginUser({ username: user.username, password: input })
+      .then(({ data }) => {
+        logoutCookie();
+        console.log(data.token);
+        alert("정말로 탈퇴하시겠습니까?");
+        deleteUser(data.token)
+          .then(() => {
+            history.push("/");
+          })
+          .catch((err) => {
+            console.log(err.response);
+          });
+      })
+      .catch((err) => {
+        alert("비밀번호가 일치하지 않습니다.");
+      });
+  };
   return (
     <>
       <NavBar />
@@ -39,7 +50,7 @@ const Withdrawal = () => {
             name="currPw"
             type="password"
             onChange={onChange}
-            value={currPw}
+            value={input}
             valid={0}
           />
         </form>
@@ -49,7 +60,7 @@ const Withdrawal = () => {
           </p>
           <p>와브리타임을 이용해주셔서 감사합니다.</p>
         </article>
-        <button className="red-button" onClick={() => {}}>
+        <button className="red-button" onClick={withdraw}>
           회원 탈퇴
         </button>
       </MidWrapper>
