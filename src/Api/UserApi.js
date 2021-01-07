@@ -23,14 +23,26 @@ const loginUser = async (body) => {
 };
 const logoutUser = async (token) => {
   const config = { headers: { Authorization: `Token ${token}` } };
-  const response = await axios.post("/logout/", {}, config);
+  const response = await axios.post("/user/logout/", {}, config);
   return response;
 };
 
 const sendEmail = async (token) => {
   const config = { headers: { Authorization: `Token ${token}` } };
-  const response = await axios.post("/verify/", {}, config);
+  const response = await axios.post("/user/verify/", {}, config);
   return response;
 };
 
-export { registerUser, checkUserProperty, loginUser, logoutUser, sendEmail };
+const deleteUser = async (body, token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  return await axios.delete("/user/me/", body, config);
+};
+
+export {
+  registerUser,
+  checkUserProperty,
+  loginUser,
+  logoutUser,
+  sendEmail,
+  deleteUser,
+};
