@@ -5,6 +5,13 @@ import { checkFunctions, defaultValid } from "./CheckFunctions";
 import { useRegisterContext } from "../../Context/RegisterData";
 import { loginUser, registerUser, checkUserProperty } from "../../Api/UserApi";
 
+const errMsg = {
+  username: "이미 존재하는 아이디입니다.",
+  phone: "가입된 전화번호입니다.",
+  email: "가입된 이메일입니다.",
+  nickname: "이미 존재하는 닉네임입니다.",
+};
+
 const defaultInput = {
   user_id: "",
   userName: "",
@@ -20,7 +27,7 @@ const InfoForm = () => {
   const [validList, setValidList] = useState(defaultValid);
   const { user_id, userName, password, samePw, email, nickName, phone } = input;
 
-  const { setUserInfo, info, errMsg } = useRegisterContext();
+  const { setUserInfo, info } = useRegisterContext();
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
