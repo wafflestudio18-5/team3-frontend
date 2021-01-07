@@ -1,10 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Box, Button } from "@chakra-ui/react";
+import { useLoginContext } from "../../Context/LoginData";
 
 import img_user from "../../Images/user.png";
 function LoginInfo() {
   const history = useHistory();
+  const { logoutCookie } = useLoginContext();
   return (
     <Box
       w="173px"
@@ -33,7 +35,15 @@ function LoginInfo() {
           </Button>
         </li>
         <li>
-          <Button size="xs">로그아웃</Button>
+          <Button
+            size="xs"
+            onClick={() => {
+              // logoutCookie();
+              history.push("/");
+            }}
+          >
+            로그아웃
+          </Button>
         </li>
       </ul>
     </Box>
