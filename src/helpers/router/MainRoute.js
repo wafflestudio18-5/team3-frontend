@@ -1,9 +1,9 @@
 import { Route } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import NotLoginedMain from "../../Pages/NotLoginedMain";
+import NotLoginedMainPage from "../../Pages/NotLoginedMain";
 
 const MainRoute = ({ component: Component, ...rest }) => {
-  const [cookie] = useCookies(["waverytime"]);
+  const [cookie] = useCookies();
   return (
     <Route
       {...rest}
@@ -11,7 +11,7 @@ const MainRoute = ({ component: Component, ...rest }) => {
         cookie["waverytime"] !== undefined ? (
           <Component {...props} />
         ) : (
-          <NotLoginedMain />
+          <NotLoginedMainPage />
         )
       }
     />
