@@ -4,7 +4,7 @@ const routes = {
   main: { path: "/", component: Main },
   login: { path: "/login", component: Login },
   register: { path: "/register", component: Register },
-  UserInfo: { path: "/my", component: UserInfo },
+  userInfo: { path: "/my", component: UserInfo },
   board: { path: "/:boardId", component: Board },
   post: { path: "/:boardId/v/:postId", component: Post },
 };
