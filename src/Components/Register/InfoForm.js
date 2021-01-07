@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Container } from "@chakra-ui/react";
 import "./InfoForm.css";
 import { checkFunctions, defaultValid } from "./CheckFunctions";
 import { useRegisterContext } from "../../Context/RegisterData";
-import { loginUser, registerUser, checkUserProperty } from "../../Api/UserApi";
+import { registerUser, checkUserProperty } from "../../Api/UserApi";
+
+const errMsg = {
+  username: "이미 존재하는 아이디입니다.",
+  phone: "가입된 전화번호입니다.",
+  email: "가입된 이메일입니다.",
+  nickname: "이미 존재하는 닉네임입니다.",
+};
 
 const defaultInput = {
   user_id: "",
@@ -16,12 +24,12 @@ const defaultInput = {
 };
 
 const InfoForm = () => {
+  const history = useHistory();
   const [input, setInput] = useState(defaultInput);
   const [validList, setValidList] = useState(defaultValid);
   const { user_id, userName, password, samePw, email, nickName, phone } = input;
 
-  const { setUserInfo, info, errMsg } = useRegisterContext();
-
+  const { setUserInfo, info } = useRegisterContext();
   const onInputChange = (e) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
@@ -46,7 +54,10 @@ const InfoForm = () => {
   const isPossibleUserProp = (params) => {
     checkUserProperty(params)
       .then(() => {
-        loginUser(registerUser(info));
+        registerUser(info).then(() => {
+          alert("회원가입이 완료되었습니다.");
+          history.push("/login");
+        });
       })
       .catch((err) => {
         alert(errMsg[err.response.data["ERR"].split(" ")[1]]);
