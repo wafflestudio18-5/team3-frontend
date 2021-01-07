@@ -19,8 +19,8 @@ function App() {
           component={routes.register.component}
         />
         <Route
-          path={routes.UserInfo.path}
-          component={routes.UserInfo.component}
+          path={routes.userInfo.path}
+          component={routes.userInfo.component}
         />
         <Route
           exact
