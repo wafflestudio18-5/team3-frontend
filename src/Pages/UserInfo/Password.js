@@ -1,10 +1,12 @@
-import { MidWrapper, Input, checkFunctions, Footer } from "../../Components/";
-import { useState } from "react";
-import { NavBar } from "../../Components";
+import { useState } from 'react';
+import { NavBar, MidWrapper, Input, checkFunctions, Footer } from '../../Components/';
+import { loginUser } from '../../Api/UserApi';
+import { useLoginContext } from '../../Context/LoginData';
+
 const defaultInput = {
-  password: "",
-  samePw: "",
-  currPw: "",
+  password: '',
+  samePw: '',
+  currPw: '',
 };
 const defaultValid = {
   password: 0,
@@ -15,6 +17,9 @@ const defaultValid = {
 const Password = () => {
   const [input, setInput] = useState(defaultInput);
   const [valid, setValid] = useState(defaultValid);
+
+  const { user, updateUserInfo } = useLoginContext();
+
   const { password, samePw, currPw } = input;
 
   const onChange = (e) => {
@@ -25,6 +30,21 @@ const Password = () => {
       setValid({
         ...valid,
         [name]: cond,
+      });
+  };
+
+  const changePw = () => {
+    if (!valid) {
+      alert('제대로 된 비밀번호를 입력해주세요');
+      return;
+    }
+    loginUser({ username: user.username, password: currPw })
+      .then(({ data }) => {
+        const { token } = data;
+        updateUserInfo({ password }, token);
+      })
+      .catch((err) => {
+        alert('현재 비밀번호를 잘못 입력하셨습니다.');
       });
   };
 
@@ -67,7 +87,8 @@ const Password = () => {
             valid={currPw.length}
           />
         </form>
-        <button className="red-button" onClick={() => {}}>
+
+        <button className="red-button" onClick={changePw}>
           비밀번호 변경
         </button>
       </MidWrapper>
