@@ -16,14 +16,6 @@ const defaultData = {
   setUniYear: () => {},
   setUserInfo: () => {},
   checkUniYear: () => {},
-  isPossibleUserProp: () => {},
-};
-
-const errMsg = {
-  username: "이미 존재하는 아이디입니다.",
-  phone: "가입된 전화번호입니다.",
-  email: "가입된 이메일입니다.",
-  nickname: "이미 존재하는 닉네임입니다.",
 };
 
 const RegisterContext = createContext(defaultData);
@@ -72,20 +64,11 @@ const RegisterProvider = ({ children }) => {
     }));
   };
 
-  const isPossibleUserProp = (params) => {
-    checkUserProperty(params).catch((err) => {
-      alert(errMsg[err.response.data["ERR"].split(" ")[1]]);
-      return false;
-    });
-    return true;
-  };
-
   const termState = {
     ...defaultData,
     setUniYear,
     setUserInfo,
     checkUniYear,
-    isPossibleUserProp,
   };
 
   const [state, setState] = useState(termState);
