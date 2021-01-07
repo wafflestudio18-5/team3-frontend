@@ -24,7 +24,7 @@ const LoginProvider = ({ children }) => {
   };
 
   const consoleCookie = () => {
-    console.log(cookie);
+    // console.log(cookie);
   };
 
   const isLogined = () => {
