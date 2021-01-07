@@ -35,7 +35,7 @@ const sendEmail = async (token) => {
 
 const deleteUser = async (token) => {
   const config = { headers: { Authorization: `Token ${token}` } };
-  return await axios.delete("/user/me/", {}, config);
+  return await axios.delete("/user/me/", config);
 };
 
 export {
