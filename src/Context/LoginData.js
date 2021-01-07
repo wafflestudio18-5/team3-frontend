@@ -1,7 +1,7 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { loginUser, updateUser } from '../Api/UserApi';
-import { useHistory } from 'react-router-dom';
 const defaultList = {
   logined: false,
   user: {},
@@ -18,6 +18,7 @@ const LoginContext = createContext(defaultList);
 const LoginProvider = ({ children }) => {
   const [cookie, setCookie, removeCookie] = useCookies(['waverytime']);
   const history = useHistory();
+
   const loginCookie = (info) => {
     setState((state) => ({ ...state, user: info }));
     setCookie('waverytime', info, { path: '/' });
@@ -76,6 +77,13 @@ const LoginProvider = ({ children }) => {
     logout,
     updateUserInfo,
   };
+
+  useEffect(() => {
+    const user = cookie['waverytime'];
+    if (user) {
+      setState((state) => ({ ...state, user }));
+    }
+  }, []);
 
   const [state, setState] = useState(termState);
 
