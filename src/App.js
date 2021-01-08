@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import { MainRoute } from "./helpers/router/";
+import { MainRoute, PrivateRoute } from "./helpers/router/";
 import routes from "./Routes";
 import "./App.css";
 
@@ -17,7 +17,7 @@ function App() {
         path={routes.register.path}
         component={routes.register.component}
       />
-      <Route
+      <PrivateRoute
         path={routes.UserInfo.path}
         component={routes.UserInfo.component}
       />

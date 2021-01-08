@@ -33,12 +33,13 @@ const LoginProvider = ({ children }) => {
   const history = useHistory();
 
   const loginCookie = (info) => {
-    setState((state) => ({ ...state, user: info }));
     setCookie('waverytime', info, { path: '/' });
+    setState((state) => ({ ...state, user: info }));
   };
 
   const logoutCookie = () => {
     removeCookie('waverytime');
+    setState((state) => ({ ...state, user: defaultList.user }));
   };
 
   const isLogined = () => {
@@ -48,18 +49,19 @@ const LoginProvider = ({ children }) => {
   const login = ({ username, password }) => {
     loginUser({ username, password })
       .then(({ data }) => {
-        setState((state) => ({ ...state, info: true }));
         loginCookie(data);
-        history.push('/');
+        window.location.href = '/';
       })
       .catch((err) => {
         console.clear();
         alert('아이디나 비밀번호를 제대로 입력해주세요');
       });
   };
-  const logout = () => {
-    logoutCookie();
-    logoutUser(state.user.token).then(() => history.push('/'));
+  const logout = (token) => {
+    logoutUser(token).then(() => {
+      logoutCookie();
+      window.location.href = '/';
+    });
   };
 
   const updateUserInfo = (body, token) => {
@@ -79,14 +81,9 @@ const LoginProvider = ({ children }) => {
       });
   };
 
-  const emailAuth = (token) => {
-    sendEmail(token)
+  const emailAuth = (body, token) => {
+    sendEmail(body, token)
       .then((_) => {
-        setCookie('waverytime', { ...cookie['waverytime'], is_verified: true }, { path: '/' });
-        setState((state) => ({
-          ...state,
-          user: { ...state.user, is_verified: true },
-        }));
         alert('이메일이 발송되었습니다. 이메일의 링크를 클릭하십시오.');
       })
       .catch((err) => console.log(err.response));
