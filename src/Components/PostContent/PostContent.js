@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import { Box } from "@chakra-ui/react";
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Box } from '@chakra-ui/react';
 
-import { useListContext } from "../../Context/BoardList";
-import CommentList from "./CommentList";
-import img_user from "../../Images/user.png";
-import "./PostContent.css";
+import { useListContext } from '../../Context/BoardList';
+import { postList } from '../../Api/PostApi';
+import { commentList } from '../../Api/CommentApi';
+import CommentList from './CommentList';
+import img_user from '../../Images/user.png';
+import './PostContent.css';
 
 const PostContent = () => {
   const { boardId, postId } = useParams();
@@ -16,13 +18,13 @@ const PostContent = () => {
     .posts.find((post) => post.id === +postId);
 
   const [Comment, setComment] = useState({
-    content: "",
+    content: '',
   });
 
   const onClickAnon = () => {};
 
   const onClickSubmit = (post) => {
-    setComment({ ...Comment, content: "" });
+    setComment({ ...Comment, content: '' });
   };
 
   const onChangeInput = (event) => {
@@ -35,15 +37,8 @@ const PostContent = () => {
 
   return (
     <section>
-      <a href={"/" + boardId}>
-        <Box
-          w="778px"
-          h="61px"
-          p="15px"
-          mb="5px"
-          border="1px"
-          borderColor="#e3e3e3"
-        >
+      <a href={'/' + boardId}>
+        <Box w="778px" h="61px" p="15px" mb="5px" border="1px" borderColor="#e3e3e3">
           <h1>{boards.find((board) => board.id === +boardId).name}</h1>
         </Box>
       </a>
