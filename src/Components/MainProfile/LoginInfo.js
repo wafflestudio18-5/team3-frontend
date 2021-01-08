@@ -1,12 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useLoginContext } from "../../Context/LoginData";
 
 import img_user from "../../Images/user.png";
 function LoginInfo() {
   const history = useHistory();
-  const { logoutCookie } = useLoginContext();
+
+  const { user, logoutCookie, isLogined } = useLoginContext();
+  const { nickname, last_name, username } = user;
+  console.log(isLogined());
+
   return (
     <Box
       w="173px"
@@ -17,33 +21,33 @@ function LoginInfo() {
       bgColor="#f9f9f9"
     >
       <img className="img-user-l" src={img_user} alt="user" />
-      <div className="dgray18 center">Waffleytime</div> {/* 닉네임 */}
+      <div className="dgray18b center">{nickname}</div>
       <div className="lgray12 center">
-        함태원{/* 이름 */}
+        {last_name}
         <br />
-        wafflestudio{/* 아이디 */}
+        {username}
       </div>
       <ul className="mainprofile-buttonlist">
         <li>
-          <Button
-            size="xs"
+          <button
+            className="mainprofile-button"
             onClick={() => {
               history.push("/my");
             }}
           >
             내 정보
-          </Button>
+          </button>
         </li>
         <li>
-          <Button
-            size="xs"
+          <button
+            className="mainprofile-button"
             onClick={() => {
               logoutCookie();
               history.push("/");
             }}
           >
             로그아웃
-          </Button>
+          </button>
         </li>
       </ul>
     </Box>

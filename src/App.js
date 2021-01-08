@@ -6,7 +6,6 @@ import "./App.css";
 
 function App() {
   return (
-
     <Switch>
       <MainRoute
         exact
@@ -27,10 +26,14 @@ function App() {
         path={routes.board.path}
         component={routes.board.component}
       />
+      <Route
+        exact
+        path={routes.boardPage.path}
+        component={routes.boardPage.component}
+      />
       <Route path={routes.post.path} component={routes.post.component} />
       <Redirect path="*" to={routes.main.path} />
     </Switch>
-
   );
 }
 
