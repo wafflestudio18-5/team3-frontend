@@ -78,6 +78,11 @@ time {
   color: #a6a6a6;
 }
 
+.time12 {
+  font-size: 12px;
+  line-height: 20px;
+}
+
 h1 {
   font-size: 22px !important;
   font-weight: bold !important;

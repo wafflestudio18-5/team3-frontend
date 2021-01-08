@@ -4,12 +4,12 @@ import { Box } from '@chakra-ui/react';
 
 import { boardList } from '../../Api/BoardApi';
 import { postInfo } from '../../Api/PostApi';
+import { commentWrite } from '../../Api/CommentApi';
 import { useLoginContext } from '../../Context/LoginData';
 import CommentList from './CommentList';
 import timePassed from '../../helpers/functions/time';
 import img_user from '../../Images/user.png';
 import './PostContent.css';
-import { commentWrite } from '../../Api/CommentApi';
 
 const PostContent = () => {
   const { user } = useLoginContext();
@@ -48,7 +48,7 @@ const PostContent = () => {
   };
 
   const onClickSubmit = () => {
-    if (Comment.content === '') return alert('내용을 입력해 주세요.');
+    if (Comment.content === '') return window.alert('내용을 입력해 주세요.');
     commentWrite(Comment, user.token);
     setComment({ ...Comment, content: '' });
   };

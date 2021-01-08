@@ -54,8 +54,8 @@ const BoardContent = () => {
   };
 
   const onClickSubmit = () => {
-    if (Post.title === '') return alert('제목을 입력해 주세요.');
-    if (Post.content === '') return alert('내용을 입력해 주세요.');
+    if (Post.title === '') return window.alert('제목을 입력해 주세요.');
+    if (Post.content === '') return window.alert('내용을 입력해 주세요.');
     postWrite(Post, user.token);
     setPost({ ...Post, title: '', content: '' });
     setWritePost(false);
