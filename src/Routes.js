@@ -1,4 +1,4 @@
-import { Main, UserInfo, Register, Post, Board, Login } from "./Pages";
+import { Main, UserInfo, Register, Post, Board, Login, Verified } from './Pages';
 
 const routes = {
   main: { path: "/", component: Main },
@@ -8,6 +8,8 @@ const routes = {
   board: { path: "/:boardId", component: Board },
   boardPage: { path: "/:boardId/p/:pageId", component: Board },
   post: { path: "/:boardId/v/:postId", component: Post },
+   verified: { path: '/verified', component: Verified },
+
 };
 
 export default routes;

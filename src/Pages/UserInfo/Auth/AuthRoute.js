@@ -1,7 +1,7 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { Auth, Mail } from "./";
+import { Auth, Mail } from './';
 const AuthRoute = () => {
   return (
     <Switch>
