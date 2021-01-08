@@ -79,6 +79,7 @@ time {
 }
 
 .time12 {
+  margin-right: 8px;
   font-size: 12px;
   line-height: 20px;
 }

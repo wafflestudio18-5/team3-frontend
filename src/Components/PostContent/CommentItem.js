@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, VStack } from '@chakra-ui/react';
 
-import { commentWrite, commentLike } from '../../Api/CommentApi';
+import { commentWrite, commentLike, commentDelete } from '../../Api/CommentApi';
 import { useLoginContext } from '../../Context/LoginData';
 import ReplyItem from './ReplyItem';
 import timePassed from '../../helpers/functions/time';
@@ -25,7 +25,15 @@ const CommentItem = ({ comment }) => {
 
   const onClickLike = () => {
     if (window.confirm('이 댓글에 공감하십니까?')) {
-      commentLike(comment.id, user.token);
+      commentLike(comment.id, user.token).catch((err) => console.log(err));
+    }
+  };
+
+  const onClickModify = () => {};
+
+  const onClickDelete = () => {
+    if (window.confirm('이 댓글을 삭제하시겠습니까?')) {
+      commentDelete(comment.id, user.token).catch((err) => console.log(err));
     }
   };
 
@@ -51,13 +59,24 @@ const CommentItem = ({ comment }) => {
     <Box w="100%" borderBottom="1px" borderColor="#e3e3e3">
       <Box w="100%" p="15px 15px 4px 15px">
         <img className="img-user-s" src={img_user} alt="user" />
-        <span className="black12b"> {comment.nickname}</span>
+        <span className="black12b"> {comment.is_anonym ? '익명' : comment.nickname}</span>
         <div className="postcontent-status">
           <button onClick={onClickReply}>대댓글</button>
           <button onClick={onClickLike}>공감</button>
+          {comment.user_id === user.id ? (
+            <>
+              {/* <button onClick={onClickModify}>수정</button> */}
+              <button onClick={onClickDelete}>삭제</button>
+            </>
+          ) : null}
         </div>
         <div className="gray14">{comment.content}</div>
         <time className="time12">{timePassed(comment.created_at)}</time>
+        {comment.numLikes > 0 ? (
+          <button className="stat-like" onClick={onClickLike}>
+            {comment.numLikes}
+          </button>
+        ) : null}
       </Box>
 
       {comment.reply && comment.reply.length > 0 ? (

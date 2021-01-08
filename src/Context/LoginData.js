@@ -5,6 +5,7 @@ import { loginUser, sendEmail, updateUser, logoutUser } from '../Api/UserApi';
 const defaultList = {
   logined: false,
   user: {
+    id: 0,
     username: '',
     password: '',
     last_name: '',
