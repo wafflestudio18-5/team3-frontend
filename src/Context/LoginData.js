@@ -24,6 +24,7 @@ const defaultList = {
   isLogined: () => {},
   updateUserInfo: () => {},
   emailAuth: () => {},
+  userVerified: () => {},
 };
 
 const LoginContext = createContext(defaultList);
@@ -58,10 +59,9 @@ const LoginProvider = ({ children }) => {
       });
   };
   const logout = (token) => {
-    logoutUser(token).then(() => {
-      logoutCookie();
-      window.location.href = '/';
-    });
+    logoutCookie();
+    window.location.href = '/';
+    logoutUser(token);
   };
 
   const updateUserInfo = (body, token) => {
@@ -81,12 +81,18 @@ const LoginProvider = ({ children }) => {
       });
   };
 
+  const userVerified = () => {
+    const newData = {
+      ...cookie['waverytime'],
+      user: { ...cookie['waverytime'].user, is_verified: true },
+    };
+    setState((state) => ({ ...state, user: newData }));
+    setCookie('waverytime', newData, { path: '/' });
+  };
+
   const emailAuth = (body, token) => {
-    sendEmail(body, token)
-      .then((_) => {
-        alert('이메일이 발송되었습니다. 이메일의 링크를 클릭하십시오.');
-      })
-      .catch((err) => console.log(err.response));
+    alert('이메일이 발송되었습니다. 이메일의 링크를 클릭하십시오.');
+    sendEmail(body, token).catch((err) => console.log(err.response));
   };
 
   const termState = {
@@ -97,6 +103,7 @@ const LoginProvider = ({ children }) => {
     logout,
     updateUserInfo,
     emailAuth,
+    userVerified,
   };
 
   useEffect(() => {
