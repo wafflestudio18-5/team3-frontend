@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 
-import { useListContext } from "../../Context/BoardList";
+import { postWrite } from "../../Api/PostApi";
+import { boardList } from "../../Api/BoardApi";
 import PostList from "./PostList";
 import "./BoardContent.css";
 
@@ -11,25 +12,32 @@ const contentplaceholder =
 
 const BoardContent = () => {
   const { boardId, pageId } = useParams();
-  const { boards } = useListContext();
 
   const [WritePost, setWritePost] = useState(false);
   const [Post, setPost] = useState({
-    id: 4,
-    time: "",
+    board: boardId,
     title: "",
     content: "",
-    likes: 0,
-    comments: [],
     is_anonym: false,
-    stars: 0,
+    tag: "",
   });
+
+  const [Board, setBoard] = useState();
+
+  useEffect(() => {
+    boardList().then((response) => {
+      const board = response.data.find((board) => board.id === +boardId);
+      setBoard(board);
+    });
+  }, [boardId]);
 
   const onClickWrite = () => {
     setWritePost(true);
   };
 
   const onClickSubmit = (post) => {
+    console.log(Post);
+    postWrite(Post);
     setPost({ ...Post, title: "", content: "" });
     setWritePost(false);
   };
@@ -48,16 +56,18 @@ const BoardContent = () => {
 
   return (
     <section>
-      <Box
-        w="778px"
-        h="61px"
-        p="15px"
-        mb="5px"
-        border="1px"
-        borderColor="#e3e3e3"
-      >
-        <h1>{boards.find((board) => board.id === +boardId).name}</h1>
-      </Box>
+      {Board ? (
+        <Box
+          w="778px"
+          h="61px"
+          p="15px"
+          mb="5px"
+          border="1px"
+          borderColor="#e3e3e3"
+        >
+          <h1>{Board.title}</h1>
+        </Box>
+      ) : null}
 
       {WritePost ? (
         <div className="boardcontent-form">
