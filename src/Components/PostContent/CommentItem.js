@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Box } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, VStack } from '@chakra-ui/react';
 
-import { commentWrite } from '../../Api/CommentApi';
+import { commentWrite, commentLike } from '../../Api/CommentApi';
 import { useLoginContext } from '../../Context/LoginData';
+import ReplyItem from './ReplyItem';
 import timePassed from '../../helpers/functions/time';
 import img_user from '../../Images/user.png';
 
@@ -24,6 +25,7 @@ const CommentItem = ({ comment }) => {
 
   const onClickLike = () => {
     if (window.confirm('이 댓글에 공감하십니까?')) {
+      commentLike(comment.id, user.token);
     }
   };
 
@@ -47,9 +49,9 @@ const CommentItem = ({ comment }) => {
 
   return (
     <Box w="100%" borderBottom="1px" borderColor="#e3e3e3">
-      <Box w="100%" p="7px 15px 4px 15px">
+      <Box w="100%" p="15px 15px 4px 15px">
         <img className="img-user-s" src={img_user} alt="user" />
-        <span className="black12b"> {comment.user_id}</span>
+        <span className="black12b"> {comment.nickname}</span>
         <div className="postcontent-status">
           <button onClick={onClickReply}>대댓글</button>
           <button onClick={onClickLike}>공감</button>
@@ -57,6 +59,22 @@ const CommentItem = ({ comment }) => {
         <div className="gray14">{comment.content}</div>
         <time className="time12">{timePassed(comment.created_at)}</time>
       </Box>
+
+      {comment.reply && comment.reply.length > 0 ? (
+        <VStack
+          w="737px"
+          m="0 4px 4px 35px"
+          border="1px"
+          borderBottom="0"
+          borderColor="#e3e3e3"
+          bgColor="#f9f9f9"
+          spacing="0"
+        >
+          {comment.reply.map((reply) => (
+            <ReplyItem key={reply.id} reply={reply} />
+          ))}
+        </VStack>
+      ) : null}
 
       {WriteReply ? (
         <div className="postcontent-form-reply">

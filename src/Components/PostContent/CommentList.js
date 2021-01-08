@@ -4,8 +4,6 @@ import { VStack } from '@chakra-ui/react';
 import { commentList } from '../../Api/CommentApi';
 import CommentItem from './CommentItem';
 
-const comments = { id: 1, user_id: 2, nickname: 'ㅎㅇ', post_id: 1, content: 'ㅎㅇㅎㅇ' };
-
 const CommentList = ({ postId }) => {
   const [Comments, setComments] = useState();
 
@@ -21,7 +19,7 @@ const CommentList = ({ postId }) => {
   }, [postId]);
 
   return (
-    <VStack w="778px" border="1px" borderTop="0" borderBottom="0" borderColor="#e3e3e3">
+    <VStack w="778px" border="1px" borderTop="0" borderBottom="0" borderColor="#e3e3e3" spacing="0">
       {Comments
         ? Comments.map((comment) => <CommentItem key={comment.id} comment={comment} />)
         : null}

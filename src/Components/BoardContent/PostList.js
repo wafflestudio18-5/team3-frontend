@@ -23,7 +23,7 @@ const PostList = ({ boardId, pageId }) => {
 
   return (
     <>
-      <VStack w="778px" border="1px" borderColor="#e3e3e3">
+      <VStack w="778px" border="1px" borderColor="#e3e3e3" spacing="0">
         {Posts && Posts.length > 0 ? (
           Posts.map((post) => <PostItem key={post.id} boardId={boardId} post={post} />)
         ) : (
