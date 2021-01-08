@@ -13,13 +13,19 @@ function App() {
       <Route path={routes.register.path} component={routes.register.component} />
       <PrivateRoute path={routes.verified.path} component={routes.verified.component} />
       <PrivateRoute path={routes.UserInfo.path} component={routes.UserInfo.component} />
-      <Route exact path={routes.board.path} component={routes.board.component} />
+      {/* <Route exact path={routes.myarticlePage.path} component={routes.myarticlePage.component} /> */}
+      <Route exact path={routes.myarticle.path} component={routes.myarticle.component} />
+      {/* <Route exact path={routes.mycommentarticlePage.path} component={routes.mycommentarticlePage.component} /> */}
       <Route
         exact
-        path={routes.boardPage.path}
-        component={routes.boardPage.component}
+        path={routes.mycommentarticle.path}
+        component={routes.mycommentarticle.component}
       />
-      <Route path={routes.post.path} component={routes.post.component} />
+
+      <Route exact path={routes.post.path} component={routes.post.component} />
+      <Route exact path={routes.boardPage.path} component={routes.boardPage.component} />
+      <Route exact path={routes.board.path} component={routes.board.component} />
+
       <Redirect path="*" to={routes.main.path} />
     </Switch>
   );

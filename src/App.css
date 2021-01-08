@@ -135,7 +135,7 @@ h2 {
 
 .dgray18b {
   margin-bottom: 5px;
-  line-height: 20px;
+  line-height: 25px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -258,7 +258,7 @@ h2 {
 /* IMG */
 
 .img-user-l {
-  margin: 15px auto;
+  margin: 12px auto;
   width: 60px;
   height: 60px;
   border-radius: 6px;
