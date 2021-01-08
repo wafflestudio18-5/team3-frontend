@@ -15,10 +15,9 @@ const MyArticle = () => {
   const [Posts, setPosts] = useState();
 
   useEffect(() => {
-    postMe(
-      // {limit_num: 20, start_num: pageId ? (pageId - 1) * 20 : 0,},
-      user.token,
-    )
+    // {limit_num: 20, start_num: pageId ? (pageId - 1) * 20 : 0,},
+    console.log(user.token);
+    postMe(user.token)
       .then((response) => {
         setPosts(response.data);
       })

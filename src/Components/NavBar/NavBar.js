@@ -1,23 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import "./NavBar.css";
-import img_logo from "../../Images/logo.png";
+import './NavBar.css';
+import img_logo from '../../Images/logo.png';
 
 // 게시판 시간표 강의평가 학점계산기 친구 책방 캠퍼스픽
 // https://cf-fpi.everytime.kr/0.png
 const navMenu = [
-  { id: 1, name: "게시판", address: "" },
-  { id: 2, name: "강의평가", address: "" },
-  { id: 3, name: "캠퍼스픽", address: "" },
-  { id: 4, name: "깃허브", address: "" },
+  { id: 1, name: '게시판', address: '/' },
+  { id: 2, name: '깃허브', address: 'https://github.com/' },
 ];
 
 function NavBar() {
   const renderedMenu = navMenu.map((item) => {
     const { id, address, name } = item;
     return (
-      <li className={id === 1 ? "nav-li-active" : "nav-li"} key={id}>
+      <li className={id === 1 ? 'nav-li-active' : 'nav-li'} key={id}>
         <Link to={address}>{name}</Link>
       </li>
     );

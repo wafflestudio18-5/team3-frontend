@@ -34,4 +34,10 @@ const postMe = async (token) => {
   return response;
 };
 
-export { postList, postInfo, postWrite, postLike, postDelete, postMe };
+const postHot = async (params, token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  const response = await axios.get('/post/hot/', { params }, config);
+  return response;
+};
+
+export { postList, postInfo, postWrite, postLike, postDelete, postMe, postHot };

@@ -22,16 +22,19 @@
   align-content: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  overflow: auto;
-  width: 160px;
+  overflow: hidden;
+  width: 800px;
   height: 100px;
-  padding: 0 15px;
-  border-left: 1px solid #e3e3e3;
+
   white-space: nowrap;
 }
 
 .submenu-text {
+  width: 160px;
+  height: 25px;
   margin: 0;
+  border-left: 1px solid #e3e3e3;
+  padding-left: 15px;
   font-size: 13px;
   line-height: 25px;
   color: #4c4c4c;
