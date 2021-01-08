@@ -38,6 +38,11 @@ const deleteUser = async (token) => {
   return await axios.delete("/user/me/", config);
 };
 
+const updateUser = async (body, token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  return await axios.put("/user/me/", body, config);
+};
+
 export {
   registerUser,
   checkUserProperty,
@@ -45,4 +50,5 @@ export {
   logoutUser,
   sendEmail,
   deleteUser,
+  updateUser,
 };
