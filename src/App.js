@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
   return (
+
     <Switch>
       <MainRoute exact path={routes.main.path} component={routes.main.component} />
       <Route path={routes.login.path} component={routes.login.component} />
@@ -16,6 +17,7 @@ function App() {
       <Route path={routes.post.path} component={routes.post.component} />
       <Redirect path="*" to={routes.main.path} />
     </Switch>
+
   );
 }
 

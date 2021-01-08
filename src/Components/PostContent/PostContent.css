@@ -2,3 +2,65 @@
   height: 55px;
   display: block;
 }
+
+.postcontent-form {
+  position: relative;
+  width: 778px;
+  height: 40px;
+}
+
+.postcontent-comment {
+  width: 778px;
+  height: 40px;
+  padding: 10px 85px 10px 10px;
+  border: 1px solid #e3e3e3;
+  border-top: 0;
+  background-color: #f8f8f8;
+
+  line-height: 20px;
+  font-size: 14px;
+  color: #262626;
+}
+
+.postcontent-comment::placeholder {
+  color: #757575;
+}
+
+.postcontent-option {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(5px);
+}
+
+.postcontent-anon-off {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  background-color: none;
+  background-image: url(/src/Images/anon_off.png);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  transform: translateY(-5px);
+}
+
+.postcontent-anon-on {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  background-color: none;
+  background-image: url(/src/Images/anon_on.png);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  transform: translateY(-5px);
+}
+
+.postcontent-submit {
+  width: 40px;
+  height: 40px;
+  background-color: #c62917;
+  background-image: url(/src/Images/write_white.png);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  transform: translateY(-5px);
+}

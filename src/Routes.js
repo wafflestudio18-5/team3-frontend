@@ -8,6 +8,7 @@ const routes = {
   board: { path: '/:boardId', component: Board },
   post: { path: '/:boardId/v/:postId', component: Post },
   verified: { path: '/verified', component: Verified },
+
 };
 
 export default routes;

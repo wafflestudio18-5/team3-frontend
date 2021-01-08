@@ -31,7 +31,7 @@ function NavBar() {
             <img className="nav-logo-img" src={img_logo} alt="Everytime" />
           </Link>
           <span>
-            <p className="nav-title">에브리타임</p>
+            <p className="nav-title">와브리타임</p>
             <p className="nav-univ">서울대</p> {/* 하드코딩 바꾸기*/}
           </span>
         </span>

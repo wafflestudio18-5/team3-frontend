@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Link } from "@chakra-ui/react";
 
@@ -14,6 +14,24 @@ const PostContent = () => {
   const post = boards
     .find((board) => board.id === +boardId)
     .posts.find((post) => post.id === +postId);
+
+  const [Comment, setComment] = useState({
+    content: "",
+  });
+
+  const onClickAnon = () => {};
+
+  const onClickSubmit = (post) => {
+    setComment({ ...Comment, content: "" });
+  };
+
+  const onChangeInput = (event) => {
+    const { name, value } = event.target;
+    setComment({
+      ...Comment,
+      [name]: value,
+    });
+  };
 
   return (
     <section>
@@ -48,6 +66,21 @@ const PostContent = () => {
       </Box>
 
       <CommentList boardId={boardId} postId={postId} />
+      <div className="postcontent-form">
+        <input
+          className="postcontent-comment"
+          name="content"
+          value={Comment.content}
+          type="text"
+          maxlength="300"
+          placeholder="댓글을 입력하세요."
+          onChange={onChangeInput}
+        />
+        <div className="postcontent-option">
+          <button className="postcontent-anon-off" onClick={onClickAnon} />
+          <button className="postcontent-submit" onClick={onClickSubmit} />
+        </div>
+      </div>
     </section>
   );
 };
