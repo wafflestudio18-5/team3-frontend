@@ -111,7 +111,7 @@ const LoginProvider = ({ children }) => {
     if (user) {
       setState((state) => ({ ...state, user }));
     }
-  }, []);
+  }, [cookie]);
 
   const [state, setState] = useState(termState);
 

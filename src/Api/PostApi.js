@@ -1,12 +1,13 @@
-import axios from "./api";
+import axios from './api';
 
 const postList = async (params) => {
-  const response = await axios.get("/post/list/", { params });
+  const response = await axios.get('/post/list/', { params });
   return response;
 };
 
-const postWrite = async (body) => {
-  const response = await axios.post("/post/write/", body);
+const postWrite = async (body, token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  const response = await axios.post('/post/write/', body, config);
   return response;
 };
 
