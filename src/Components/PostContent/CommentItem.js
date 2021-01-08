@@ -13,7 +13,7 @@ const CommentItem = ({ comment }) => {
   const [WriteReply, setWriteReply] = useState(false);
 
   const [Reply, setReply] = useState({
-    post: comment.post_id,
+    post: comment.post,
     parent: comment.id,
     content: '',
     is_anonym: false,

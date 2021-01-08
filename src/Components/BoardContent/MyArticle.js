@@ -2,28 +2,28 @@ import React, { useState, useEffect } from 'react';
 // import { useParams, useHistory } from 'react-router-dom';
 import { Box, VStack } from '@chakra-ui/react';
 
-// import { useLoginContext } from '../../Context/LoginData';
+import { useLoginContext } from '../../Context/LoginData';
 import { postMe } from '../../Api/PostApi';
 import PostItem from './PostItem';
 import './BoardContent.css';
 
 const MyArticle = () => {
-  // const { user } = useLoginContext();
+  const { user } = useLoginContext();
   // const { pageId } = useParams();
   // const history = useHistory();
 
   const [Posts, setPosts] = useState();
 
   useEffect(() => {
-    postMe({
-      // limit_num: 20,
-      // start_num: pageId ? (pageId - 1) * 20 : 0,
-    })
+    postMe(
+      // {limit_num: 20, start_num: pageId ? (pageId - 1) * 20 : 0,},
+      user.token,
+    )
       .then((response) => {
         setPosts(response.data);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [user.token]);
 
   return (
     <section>

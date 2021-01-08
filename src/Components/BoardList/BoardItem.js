@@ -60,7 +60,7 @@ const Board = ({ board }) => {
         <>
           {Posts
             ? Posts.slice(0, 2).map((post) => (
-                <Link to={'/' + board.id + '/v/' + post.id} key={post.id}>
+                <Link href={'/' + board.id + '/v/' + post.id} key={post.id}>
                   <Box w="100%" h="76px" p="10px" borderBottom="1px" borderColor="#e3e3e3">
                     <div className="gray13 boardlist-content">{post.content}</div>
                     <time>{timePassed(post.created_at)}</time>

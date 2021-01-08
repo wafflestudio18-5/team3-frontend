@@ -10,6 +10,7 @@ const timePassed = (time) => {
       ` ${hour}:${minute}`
     );
   } else {
+    console.log(currDate - createdDate);
     const minute = (currDate - createdDate) / 60;
     return Math.floor(minute) ? Math.floor(minute) + '분 전' : '방금';
   }

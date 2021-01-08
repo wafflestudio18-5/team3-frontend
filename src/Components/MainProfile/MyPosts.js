@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 
 import img_posts from '../../Images/posts.png';
 import img_comment from '../../Images/comment.png';
-import img_star from '../../Images/star.png';
+// import img_star from '../../Images/star.png';
 
 function MyPosts() {
   return (

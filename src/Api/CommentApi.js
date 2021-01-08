@@ -29,8 +29,9 @@ const commentDelete = async (comment_id, token) => {
   return response;
 };
 
-const commentMe = async () => {
-  const response = await axios.get(`/comment/me/`);
+const commentMe = async (token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  const response = await axios.get('/comment/me/', {}, config);
   return response;
 };
 

@@ -5,8 +5,9 @@ const postList = async (params) => {
   return response;
 };
 
-const postInfo = async (post_id) => {
-  const response = await axios.get(`/post/${post_id}/info/`);
+const postInfo = async (post_id, token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  const response = await axios.get(`/post/${post_id}/info/`, {}, config);
   return response;
 };
 
@@ -27,8 +28,9 @@ const postDelete = async (post_id, token) => {
   return response;
 };
 
-const postMe = async () => {
-  const response = await axios.get('/post/me/');
+const postMe = async (token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  const response = await axios.get('/post/me/', {}, config);
   return response;
 };
 
