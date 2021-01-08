@@ -47,6 +47,10 @@ const LoginProvider = ({ children }) => {
     return cookie['waverytime'] !== undefined;
   };
 
+  const isVerified = () => {
+    return cookie['waverytime'] && cookie['waverytime']['is_verified'];
+  };
+
   const login = ({ username, password }) => {
     loginUser({ username, password })
       .then(({ data }) => {
