@@ -14,6 +14,7 @@ const checkUserProperty = async (params) => {
 
 const loginUser = async (body) => {
   const response = await axios.put('/user/login/', body);
+  console.log(response);
   return response;
 };
 const logoutUser = async (token) => {
@@ -22,9 +23,9 @@ const logoutUser = async (token) => {
   return response;
 };
 
-const sendEmail = async (token) => {
+const sendEmail = async (body, token) => {
   const config = { headers: { Authorization: `Token ${token}` } };
-  const response = await axios.post('/user/verify/', {}, config);
+  const response = await axios.post('/user/verify/', body, config);
   return response;
 };
 
