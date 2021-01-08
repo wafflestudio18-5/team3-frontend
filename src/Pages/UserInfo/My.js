@@ -1,9 +1,9 @@
-import { InfoData, InfoWrapper } from "../../Components/UserInfo";
-import { Footer, NavBar } from "../../Components/";
-import UserImg from "../../Images/user.png";
-import { useLoginContext } from "../../Context/LoginData";
+import { InfoData, InfoWrapper } from '../../Components/UserInfo';
+import { Footer, NavBar } from '../../Components/';
+import UserImg from '../../Images/user.png';
+import { useLoginContext } from '../../Context/LoginData';
 
-import "./InfoPage.css";
+import './InfoPage.css';
 
 const My = () => {
   const { user, logout } = useLoginContext();
@@ -19,7 +19,7 @@ const My = () => {
         <div className="light-border-wrapper my-info">
           <div className="flex-nowrap-space">
             <h2 className="info-header-font">내 정보</h2>
-            <button onClick={logout}>로그아웃</button>
+            <button onClick={() => logout(user.token)}>로그아웃</button>
           </div>
           <div>
             <img src={UserImg} alt="userImg" />

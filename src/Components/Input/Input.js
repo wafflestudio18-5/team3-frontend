@@ -16,7 +16,7 @@ const Input = ({
     if (x < 0) return "error";
   };
   return (
-    <div className="text-drag-disable width-100">
+    <div className="text-drag-disable width-100 input-box">
       {label.length ? <label>{label}</label> : null}
       <span>{subLabel}</span>
       <input
