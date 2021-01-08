@@ -37,8 +37,8 @@ const Mail = () => {
         <button
           className="red-button"
           onClick={() => {
-            if (validCallback()) emailAuth({ email: input }, user.token);
-            else alert('올바른 비밀번호를 입력해주세요');
+            if (validCallback() === 1) emailAuth({ email: input }, user.token);
+            else alert('올바른 이메일을 입력해주세요');
           }}
         >
           인증 메일 보내기
