@@ -140,15 +140,9 @@ const defaultList = {
     // Main 페이지에서 보이는 board들
     {
       id: 1,
-      hidden: false, // 로그인을 해야만 표시되는지 여부
     },
     {
       id: 2,
-      hidden: true,
-    },
-    {
-      id: 3,
-      hidden: false,
     },
   ],
   addPost: () => {},

@@ -1,5 +1,16 @@
 .mainprofile-buttonlist {
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
+  text-align: center;
+}
+
+.mainprofile-button {
+  width: 66px;
+  height: 27px;
+  margin: 0 2px;
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+
+  font-size: 13px;
 }
 
 .mainprofile-menu {

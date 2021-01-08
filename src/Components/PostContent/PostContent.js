@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Link } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 import { useListContext } from "../../Context/BoardList";
 import CommentList from "./CommentList";

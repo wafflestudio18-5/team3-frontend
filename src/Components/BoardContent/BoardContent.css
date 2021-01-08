@@ -77,3 +77,10 @@
   background-size: 40px 40px;
   transform: translateY(-5px);
 }
+
+.boardcontent-nomore {
+  padding: 80px 0;
+  height: 182px;
+  color: #737373;
+  font-size: 15px;
+}
