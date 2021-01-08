@@ -3,6 +3,8 @@ import { useLoginContext } from '../../Context/LoginData';
 import { postList } from '../../Api/PostApi';
 import { GridItem, Box, Link, Center, Button } from '@chakra-ui/react';
 
+import timePassed from '../../helpers/functions/time';
+
 const Board = ({ board }) => {
   const { isLogined } = useLoginContext();
 
@@ -48,7 +50,7 @@ const Board = ({ board }) => {
                 <Link href={'/' + board.id + '/v/' + post.id} key={post.id}>
                   <Box w="100%" h="38px" p="10px" borderBottom="1px" borderColor="#e3e3e3">
                     <span className="gray14">{post.title}</span>
-                    <time className="boardlist-time-right">{'time'}</time>
+                    <time className="boardlist-time-right">{timePassed(post.created_at)}</time>
                   </Box>
                 </Link>
               ))
@@ -57,11 +59,11 @@ const Board = ({ board }) => {
       ) : (
         <>
           {Posts
-            ? Posts.slice(-2).map((post) => (
+            ? Posts.slice(0, 2).map((post) => (
                 <Link to={'/' + board.id + '/v/' + post.id} key={post.id}>
                   <Box w="100%" h="76px" p="10px" borderBottom="1px" borderColor="#e3e3e3">
                     <div className="gray13 boardlist-content">{post.content}</div>
-                    <time>{'time'}</time>
+                    <time>{timePassed(post.created_at)}</time>
                     <ul className="boardlist-stat">
                       <li className="stat-like-s">{post.numLikes}</li>
                       <li className="stat-comment-s">{post.numComments}</li>

@@ -37,12 +37,6 @@ const BoardContent = () => {
     setWritePost(true);
   };
 
-  const onClickSubmit = () => {
-    postWrite(Post, user.token);
-    setPost({ ...Post, title: '', content: '' });
-    setWritePost(false);
-  };
-
   const onChangeInput = (event) => {
     const { name, value } = event.target;
     setPost({
@@ -53,6 +47,18 @@ const BoardContent = () => {
 
   const onClickHashtag = () => {
     setPost({ ...Post, content: Post.content + '#' });
+  };
+
+  const onClickAnon = () => {
+    setPost((post) => ({ ...post, is_anonym: !post.is_anonym }));
+  };
+
+  const onClickSubmit = () => {
+    if (Post.title === '') return alert('제목을 입력해 주세요.');
+    if (Post.content === '') return alert('내용을 입력해 주세요.');
+    postWrite(Post, user.token);
+    setPost({ ...Post, title: '', content: '' });
+    setWritePost(false);
   };
 
   return (
@@ -84,6 +90,10 @@ const BoardContent = () => {
           />
           <button className="boardcontent-hashtag" onClick={onClickHashtag} />
           <button className="boardcontent-submit" onClick={onClickSubmit} />
+          <button
+            className={Post.is_anonym ? 'boardcontent-anon-on' : 'boardcontent-anon-off'}
+            onClick={onClickAnon}
+          />
         </div>
       ) : (
         <button className="boardcontent-write" onClick={onClickWrite}>

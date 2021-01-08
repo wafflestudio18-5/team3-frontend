@@ -33,34 +33,28 @@
   transform: translateY(5px);
 }
 
-.postcontent-anon-off {
-  width: 40px;
-  height: 40px;
-  margin-right: 5px;
-  background-color: none;
-  background-image: url(/src/Images/anon_off.png);
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
-  transform: translateY(-5px);
-}
-
-.postcontent-anon-on {
-  width: 40px;
-  height: 40px;
-  margin-right: 5px;
-  background-color: none;
-  background-image: url(/src/Images/anon_on.png);
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
-  transform: translateY(-5px);
-}
-
+.postcontent-anon-off,
+.postcontent-anon-on,
 .postcontent-submit {
   width: 40px;
   height: 40px;
-  background-color: #c62917;
-  background-image: url(/src/Images/write_white.png);
+  background-color: none;
   background-repeat: no-repeat;
   background-size: 40px 40px;
   transform: translateY(-5px);
+}
+
+.postcontent-anon-off {
+  margin-right: 5px;
+  background-image: url(/src/Images/anon_off.png);
+}
+
+.postcontent-anon-on {
+  margin-right: 5px;
+  background-image: url(/src/Images/anon_on.png);
+}
+
+.postcontent-submit {
+  background-color: #c62917;
+  background-image: url(/src/Images/write_white.png);
 }

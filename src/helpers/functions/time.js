@@ -14,3 +14,5 @@ const timePassed = (time) => {
     return Math.floor(minute) ? Math.floor(minute) + '분 전' : '방금';
   }
 };
+
+export default timePassed;
