@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 
 import { boardList } from '../../Api/BoardApi';
-import { postInfo, postUpdate, postDelete } from '../../Api/PostApi';
+import { postInfo, postLike, postUpdate, postDelete } from '../../Api/PostApi';
 import { commentWrite } from '../../Api/CommentApi';
 import { useLoginContext } from '../../Context/LoginData';
 import CommentList from './CommentList';
@@ -77,6 +77,14 @@ const PostContent = () => {
     commentWrite(Comment, user.token);
     setComment({ ...Comment, content: '' });
     setCommentOn(true);
+  };
+
+  const onClickLike = () => {
+    if (window.confirm('이 글에 공감하십니까?')) {
+      postLike(postId, user.token)
+        .then(() => setPost({ ...Post, numLikes: Post.numLikes + 1 }))
+        .catch((err) => console.log(err.response));
+    }
   };
 
   // modify
@@ -168,11 +176,13 @@ const PostContent = () => {
 
               {Post.title ? <h2>{Post.title}</h2> : null}
               <div className="gray14">{Post.content}</div>
-              <ul className="stat">
-                <li className="stat-like">{Post.numLikes}</li>
-                <li className="stat-comment">{Post.numComments}</li>
-                <li className="stat-star">{Post.numScraps}</li>
-              </ul>
+              <div className="stat">
+                <button className="stat-like" onClick={onClickLike}>
+                  {Post.numLikes}
+                </button>
+                <span className="stat-comment">{Post.numComments}</span>
+                <span className="stat-star">{Post.numScraps}</span>
+              </div>
               <br />
             </Box>
           ) : null}
@@ -196,30 +206,27 @@ const PostContent = () => {
               <button className="postcontent-submit" onClick={onClickSubmit} />
             </div>
           </div>
+          <CommentList postId={postId} newComment={commentOn} />
+          <div className="postcontent-form">
+            <input
+              className="postcontent-comment"
+              name="content"
+              value={Comment.content}
+              type="text"
+              maxLength="300"
+              placeholder="댓글을 입력하세요."
+              onChange={onChangeInput}
+            />
+            <div className="postcontent-option">
+              <button
+                className={Comment.is_anonym ? 'postcontent-anon-on' : 'postcontent-anon-off'}
+                onClick={onClickAnon}
+              />
+              <button className="postcontent-submit" onClick={onClickSubmit} />
+            </div>
+          </div>
         </>
       )}
-      ) : null}
-
-      <CommentList postId={postId} newComment={commentOn} />
-
-      <div className="postcontent-form">
-        <input
-          className="postcontent-comment"
-          name="content"
-          value={Comment.content}
-          type="text"
-          maxLength="300"
-          placeholder="댓글을 입력하세요."
-          onChange={onChangeInput}
-        />
-        <div className="postcontent-option">
-          <button
-            className={Comment.is_anonym ? 'postcontent-anon-on' : 'postcontent-anon-off'}
-            onClick={onClickAnon}
-          />
-          <button className="postcontent-submit" onClick={onClickSubmit} />
-        </div>
-      </div>
     </section>
   );
 };

@@ -21,11 +21,13 @@ const MyCommentArticle = () => {
         let posts = [];
         console.log(response.data);
         response.data.forEach((comment) => {
-          postInfo(comment.post).then((res) => posts.push(res.data));
+          postInfo(comment.post)
+            .then((res) => posts.push(res.data))
+            .catch((e) => console.log(e.response));
         });
         setPosts(posts);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(e.response));
   }, [user.token]);
 
   return (

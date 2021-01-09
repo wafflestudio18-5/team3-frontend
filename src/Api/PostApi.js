@@ -16,8 +16,9 @@ const postWrite = async (body, token) => {
   return response;
 };
 
-const postLike = async (post_id) => {
-  const response = await axios.put(`/post/${post_id}/like/`);
+const postLike = async (post_id, token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  const response = await axios.put(`/post/${post_id}/like/`, {}, config);
   return response;
 };
 
