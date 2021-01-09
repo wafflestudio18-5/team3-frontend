@@ -1,23 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
-import "./Submenu.css";
+import { boardList } from '../../Api/BoardApi';
+import './Submenu.css';
 
 function Submenu() {
+  const [Boards, setBoards] = useState();
+
+  useEffect(() => {
+    boardList().then((response) => setBoards(response.data));
+  }, []);
+
   return (
     <header className="submenu">
       <div className="submenu-content">
         <ul className="submenu-column">
-          <li className="submenu-text">
-            <a href="/1">자유게시판</a>
-          </li>
-          <li className="submenu-text">
-            <a href="/2">비밀게시판</a>
-          </li>
-        </ul>
-        <ul className="submenu-column">
-          <li className="submenu-text">
-            <a href="/3">졸업생게시판</a>
-          </li>
+          {Boards
+            ? Boards.map((board) => (
+                <li className="submenu-text" key={board.id}>
+                  <a href={'/' + board.id}>{board.title}</a>
+                </li>
+              ))
+            : null}
         </ul>
       </div>
     </header>

@@ -5,6 +5,7 @@ import { loginUser, sendEmail, updateUser, logoutUser } from '../Api/UserApi';
 const defaultList = {
   logined: false,
   user: {
+    id: 0,
     username: '',
     password: '',
     last_name: '',
@@ -22,6 +23,7 @@ const defaultList = {
   login: () => {},
   logout: () => {},
   isLogined: () => {},
+  isVerified: () => {},
   updateUserInfo: () => {},
   emailAuth: () => {},
   userVerified: () => {},
@@ -104,6 +106,7 @@ const LoginProvider = ({ children }) => {
     login,
     logoutCookie,
     isLogined,
+    isVerified,
     logout,
     updateUserInfo,
     emailAuth,
@@ -115,7 +118,7 @@ const LoginProvider = ({ children }) => {
     if (user) {
       setState((state) => ({ ...state, user }));
     }
-  }, []);
+  }, [cookie]);
 
   const [state, setState] = useState(termState);
 

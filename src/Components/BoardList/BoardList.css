@@ -14,7 +14,8 @@
 }
 
 .boardlist-content {
-  min-height: 30px;
+  overflow: hidden;
+  height: 36px;
 }
 
 .boardlist-time-right {
