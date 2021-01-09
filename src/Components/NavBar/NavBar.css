@@ -42,7 +42,7 @@ nav {
 }
 
 .nav-menu {
-  margin: 0 auto;
+  margin-left: 300px;
   white-space: nowrap;
   font-size: 16px;
   font-weight: bold;
