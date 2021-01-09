@@ -6,6 +6,9 @@
 .postcontent-status {
   float: right;
 }
+.postcontent-status-post {
+  float: right;
+}
 
 .postcontent-status button {
   margin-left: 8px;
