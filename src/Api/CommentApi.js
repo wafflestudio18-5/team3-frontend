@@ -25,13 +25,13 @@ const commentUpdate = async (comment_id, token) => {
 
 const commentDelete = async (comment_id, token) => {
   const config = { headers: { Authorization: `Token ${token}` } };
-  const response = await axios.delete(`/comment/${comment_id}/delete/`, {}, config);
+  const response = await axios.delete(`/comment/${comment_id}/delete/`, config);
   return response;
 };
 
 const commentMe = async (token) => {
   const config = { headers: { Authorization: `Token ${token}` } };
-  const response = await axios.get('/comment/me/', {}, config);
+  const response = await axios.get('/comment/me/', config);
   return response;
 };
 

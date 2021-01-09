@@ -29,7 +29,7 @@ const CommentItem = ({ comment }) => {
     }
   };
 
-  const onClickModify = () => {};
+  // const onClickModify = () => {};
 
   const onClickDelete = () => {
     if (window.confirm('이 댓글을 삭제하시겠습니까?')) {

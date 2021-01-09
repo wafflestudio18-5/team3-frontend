@@ -2,19 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Box, Link } from '@chakra-ui/react';
 
 import { postHot } from '../../Api/PostApi';
-import { useLoginContext } from '../../Context/LoginData';
 import timePassed from '../../helpers/functions/time';
 import './SubBoard.css';
 
 function SubBoard() {
-  const { user } = useLoginContext();
   const [Hot, setHot] = useState();
 
   useEffect(() => {
-    postHot({ minLikes: 3 }, user.token)
+    postHot({ minLikes: 3 })
       .then((response) => setHot(response.data.slice(-4)))
       .catch((err) => console.log(err));
-  }, [user.token]);
+  }, []);
 
   return (
     <aside className="aside-right">

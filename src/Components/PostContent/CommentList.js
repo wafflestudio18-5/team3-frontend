@@ -12,7 +12,6 @@ const CommentList = ({ postId }) => {
       post: +postId,
     })
       .then((response) => {
-        console.log(response.data);
         setComments(response.data);
       })
       .catch((e) => console.log(e));

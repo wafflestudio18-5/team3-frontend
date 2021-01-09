@@ -24,10 +24,10 @@ const PostContent = () => {
       setBoard(board);
     });
 
-    postInfo(postId, user.token)
+    postInfo(postId)
       .then((response) => setPost(response.data))
       .catch((err) => console.log(err));
-  }, [boardId, postId, user.token]);
+  }, [boardId, postId]);
 
   const [Comment, setComment] = useState({
     post: postId,

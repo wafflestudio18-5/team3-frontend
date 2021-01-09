@@ -2,33 +2,31 @@ import React, { useState, useEffect } from 'react';
 // import { useParams, useHistory } from 'react-router-dom';
 import { Box, VStack } from '@chakra-ui/react';
 
-// import { useLoginContext } from '../../Context/LoginData';
+import { useLoginContext } from '../../Context/LoginData';
 import { postInfo } from '../../Api/PostApi';
 import { commentMe } from '../../Api/CommentApi';
 import PostItem from './PostItem';
 import './BoardContent.css';
 
 const MyCommentArticle = () => {
-  // const { user } = useLoginContext();
+  const { user } = useLoginContext();
   // const { pageId } = useParams();
   // const history = useHistory();
 
   const [Posts, setPosts] = useState([]);
 
   useEffect(() => {
-    commentMe({
-      // limit_num: 20,
-      // start_num: pageId ? (pageId - 1) * 20 : 0,
-    })
+    commentMe(user.token)
       .then((response) => {
         let posts = [];
-        response.data.foreach((comment) => {
-          postInfo(comment.post_id).then((res) => posts.push(res.data));
+        console.log(response.data);
+        response.data.forEach((comment) => {
+          postInfo(comment.post).then((res) => posts.push(res.data));
         });
         setPosts(posts);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [user.token]);
 
   return (
     <section>
