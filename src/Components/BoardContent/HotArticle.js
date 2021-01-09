@@ -16,7 +16,7 @@ const HotArticle = () => {
 
   useEffect(() => {
     // {limit_num: 20, start_num: pageId ? (pageId - 1) * 20 : 0,},
-    postHot({ minLikes: 3 })
+    postHot({ minLikes: 1 })
       .then((response) => {
         setPosts(response.data);
       })

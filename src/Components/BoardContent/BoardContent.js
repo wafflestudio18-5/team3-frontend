@@ -17,13 +17,6 @@ const BoardContent = () => {
 
   const [Board, setBoard] = useState();
 
-  useEffect(() => {
-    boardList().then((response) => {
-      const board = response.data.find((board) => board.id === +boardId);
-      setBoard(board);
-    });
-  }, [boardId]);
-
   const [WritePost, setWritePost] = useState(false);
   const [Post, setPost] = useState({
     board: boardId,
@@ -32,6 +25,13 @@ const BoardContent = () => {
     is_anonym: false,
     tag: '',
   });
+
+  useEffect(() => {
+    boardList().then((response) => {
+      const board = response.data.find((board) => board.id === +boardId);
+      setBoard(board);
+    });
+  }, [boardId]);
 
   const onClickWrite = () => {
     setWritePost(true);

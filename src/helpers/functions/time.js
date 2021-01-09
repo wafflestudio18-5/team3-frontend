@@ -17,7 +17,6 @@ const timePassed = (time) => {
       month,
     )}/${padzero(date)} ${padzero(hour)}:${padzero(minute)}`;
   } else {
-    console.log(currDate - createdDate);
     const minute = (currDate - createdDate) / (60 * 1000);
     return Math.floor(minute) ? Math.floor(minute) + '분 전' : '방금';
   }

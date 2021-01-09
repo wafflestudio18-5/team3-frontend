@@ -9,7 +9,7 @@ function SubBoard() {
   const [Hot, setHot] = useState();
 
   useEffect(() => {
-    postHot({ minLikes: 3 })
+    postHot({ minLikes: 1 })
       .then((response) => setHot(response.data.slice(-4)))
       .catch((err) => console.log(err));
   }, []);
