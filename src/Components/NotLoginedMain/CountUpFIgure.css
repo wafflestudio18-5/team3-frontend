@@ -1,0 +1,42 @@
+.NL-figure>span{
+    font-size: 38px;
+    font-weight:800;
+}
+
+.NL-figure-box{
+    margin: 15px;
+}
+
+@media screen and (max-width:1281px) and (min-width:991px){
+    .NL-figure>span{
+        line-height: 32px;
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 990px){
+    .NL-figure-box{
+      display: flex;
+      flex-direction: row-reverse;
+      width:250px;
+      justify-content: space-between;
+    }
+    
+    .NL-figure>span{
+        line-height: 36px;
+        font-size: 28px;
+    };
+
+
+    
+    .NL-unit{
+        line-height: 20px;
+        font-weight: 800 !important;
+        font-size:11px;
+    };
+}
+
+.NL-unit{
+    font-weight: 800 !important;
+
+    font-size: 18px !important;
+}

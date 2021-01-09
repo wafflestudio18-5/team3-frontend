@@ -1,0 +1,128 @@
+.register-info-form>div>input{
+    display: block;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 8px;
+    width: 100%;
+    height: 40px;
+    line-height: 24px;
+    border: 1px solid #ededed;
+    border-radius: 12px;
+    color: #292929;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 24px 24px;
+}
+
+.register-info-form>div>p{
+    margin: 4px 0 0 8px;
+    line-height: 20px;
+    color: #c62917;
+    font-size: 12px;
+}
+
+.input-box>input{
+    display: block;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 8px;
+    width: 100%;
+    height: 40px;
+    line-height: 24px;
+    border: 1px solid #ededed;
+    border-radius: 12px;
+    color: #292929;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 24px 24px;
+}
+.input-box>p{
+    margin: 4px 0 0 8px;
+    line-height: 20px;
+    color: #c62917;
+    font-size: 12px;
+}
+
+.text-drag-disable{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.register-info-form>div{
+  /* margin-top: 15px; */
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.register-info-form>div>label:first-child{
+    line-height: 20px;
+    color: #737373;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top:24px;
+}
+
+.register-info-form>div>span{
+    line-height: 20px;
+    color: #a6a6a6;
+    font-size: 12px;
+    margin-top:24px;
+}
+.pw{
+  font-family:"돋움"
+}
+
+.pw::placeholder{
+    font-size:16px;
+    font-family: "나눔스퀘어";
+}
+.password{
+        font-family:"돋움"
+}
+
+.password::placeholder{
+    font-size:16px;
+    font-family: "나눔스퀘어";
+}
+.red-button{
+    display: block;
+    margin-top: 24px;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #c62917; 
+}
+.red-button2{
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-top: 6px;
+    border: 0;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #c62917; 
+}
+.correct{
+    background-image:url(../../Images/register/register.input.pass.png);
+}
+
+.error{
+    background-image:url(../../Images/register/register.input.caution.png);
+}
+

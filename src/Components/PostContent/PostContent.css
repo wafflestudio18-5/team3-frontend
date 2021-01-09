@@ -1,0 +1,89 @@
+.postcontent-profile {
+  height: 55px;
+  display: block;
+}
+
+.postcontent-status {
+  float: right;
+}
+.postcontent-status-post {
+  float: right;
+}
+
+.postcontent-status button {
+  margin-left: 8px;
+  padding: 0 2px;
+  height: 20px;
+
+  font-size: 12px;
+  line-height: 20px;
+  color: #a6a6a6;
+}
+
+.postcontent-form {
+  position: relative;
+  width: 778px;
+  height: 40px;
+}
+
+.postcontent-form-reply {
+  position: relative;
+  width: 737px;
+  height: 40px;
+  margin: 0 4px 4px 35px;
+}
+
+.postcontent-comment,
+.postcontent-reply {
+  width: 100%;
+  height: 40px;
+  padding: 10px 85px 10px 10px;
+  border: 1px solid #e3e3e3;
+  background-color: #f8f8f8;
+
+  line-height: 20px;
+  font-size: 14px;
+  color: #262626;
+}
+
+.postcontent-comment {
+  border-top: 0;
+}
+
+.postcontent-comment::placeholder,
+.postcontent-reply::placeholder {
+  color: #757575;
+}
+
+.postcontent-option {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(5px);
+}
+
+.postcontent-anon-off,
+.postcontent-anon-on,
+.postcontent-submit {
+  width: 40px;
+  height: 40px;
+  background-color: none;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  transform: translateY(-5px);
+}
+
+.postcontent-anon-off {
+  margin-right: 5px;
+  background-image: url(/src/Images/anon_off.png);
+}
+
+.postcontent-anon-on {
+  margin-right: 5px;
+  background-image: url(/src/Images/anon_on.png);
+}
+
+.postcontent-submit {
+  background-color: #c62917;
+  background-image: url(/src/Images/write_white.png);
+}

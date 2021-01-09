@@ -1,10 +1,10 @@
-import React from "react";
+import { LoginedMain } from "./";
 
 const Main = () => {
   return (
-    <div>
-      <h1>Welcome!</h1>
-    </div>
+    <>
+      <LoginedMain />
+    </>
   );
 };
 

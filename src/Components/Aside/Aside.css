@@ -1,0 +1,158 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+}
+.aside{
+    width: 300px;
+    text-align: center;
+    position: fixed;
+    z-index: 9;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    border-left: 1px solid #d6d6d6;
+    display: block;
+}
+
+.button{
+    border: 1px solid #e3e3e3;
+    width: 90%;
+    padding: 7px;
+}
+
+.register-btn{
+    background-color: #c62917;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 5px;
+    padding: 9px;
+}
+
+.login-btn{
+    margin-top: 34px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #737373;
+}
+
+.description-font{
+    color: #4c4c4c;
+    font-size: 9px;
+    margin-right: 7px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.login-section{
+    padding-bottom: 30px;
+    position: fixed;
+    z-index: 11;
+    background: white;
+    width:300px;
+}
+.logo-img img{
+    height:40px;
+    width:40px;
+    vertical-align: middle;
+}
+.logo-img{
+    text-align: center;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.bottom-border{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.campusbox{
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    font-weight: 500;
+    width: 300px;
+    font-family: "맑은 고딕";
+    font-size: 15px;
+}
+
+.campusbox>:first-child{
+    margin-left: 15px;
+}
+
+.campusbox>:last-child{
+    margin-right:15px;
+    font-size:12px;
+    color:gray
+}
+.search{
+    position:fixed;
+    z-index: 11;
+    top:255px;
+    background: white;
+    width:300px;
+    box-sizing: border-box;
+}
+
+.campus-wrap{
+    z-index: 10;
+    position: relative;
+    top:340px;
+    background-color: white;
+}
+
+aside::-webkit-scrollbar{
+    display: none;
+}
+
+@media screen and (max-width: 990px){
+  .aside{
+      display:none;
+  }
+}
+
+.m-aside{
+    display: block;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.m-campusbox{
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    font-weight: 500;
+    width: 100%;
+    font-family: "맑은 고딕";
+    font-size: 15px;
+}
+.m-aside>*{
+    width:100%;
+}
+.m-aside>div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.m-aside>div>img{
+    align-self: center;
+    width:60px;
+    margin-top:20px;
+}
+
+.m-campus-wrap{
+    background-color: white;
+    padding: 0 20px;
+}
+
+@media screen and (max-width:990px){
+    .login-section{
+        padding-bottom: 17px;
+    }
+}
