@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { useLoginContext } from '../../Context/LoginData';
 import './NavBar.css';
 import img_logo from '../../Images/logo.png';
 
@@ -12,6 +13,8 @@ const navMenu = [
 ];
 
 function NavBar() {
+  const { user } = useLoginContext();
+
   const renderedMenu = navMenu.map((item) => {
     const { id, address, name } = item;
     return (
@@ -30,7 +33,7 @@ function NavBar() {
           </Link>
           <span>
             <p className="nav-title">와브리타임</p>
-            <p className="nav-univ">서울대</p> {/* 하드코딩 바꾸기*/}
+            <p className="nav-univ">{user.university.substring(0, 3)}</p>
           </span>
         </span>
 
