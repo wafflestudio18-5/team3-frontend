@@ -5,7 +5,7 @@ import { VStack } from '@chakra-ui/react';
 import { postList } from '../../Api/PostApi';
 import PostItem from './PostItem';
 
-const PostList = ({ boardId, pageId }) => {
+const PostList = ({ boardId, pageId, listUpdate }) => {
   const history = useHistory();
   const [Posts, setPosts] = useState();
 
@@ -19,7 +19,7 @@ const PostList = ({ boardId, pageId }) => {
         setPosts(response.data);
       })
       .catch((e) => console.log(e));
-  }, [boardId, pageId]);
+  }, [boardId, pageId, listUpdate]);
 
   return (
     <>
