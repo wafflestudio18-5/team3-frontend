@@ -8,6 +8,8 @@ import {
   Verified,
   MyArticlePage,
   MyCommentArticlePage,
+  HotArticlePage,
+  BestArticlePage,
 } from './Pages';
 
 const routes = {
@@ -23,6 +25,8 @@ const routes = {
   // myarticlePage: { path: '/myarticle/p/:pageId', component: MyArticle}
   mycommentarticle: { path: '/mycommentarticle', component: MyCommentArticlePage },
   // mycommentarticlePage: { path: '/mycommentarticle/p/:pageId', component: MyCommentArticle}
+  hotarticle: { path: '/hotarticle', component: HotArticlePage },
+  bestarticle: { path: '/bestarticle', component: BestArticlePage },
 };
 
 export default routes;

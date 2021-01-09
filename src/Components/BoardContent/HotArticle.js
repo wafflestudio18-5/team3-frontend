@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Box, VStack } from '@chakra-ui/react';
 
 import { useLoginContext } from '../../Context/LoginData';
-import { postMe } from '../../Api/PostApi';
+import { postHot } from '../../Api/PostApi';
 import PostItem from './PostItem';
 import './BoardContent.css';
 
-const MyArticle = () => {
+const HotArticle = () => {
   const { user } = useLoginContext();
   // const { pageId } = useParams();
   // const history = useHistory();
@@ -16,7 +16,7 @@ const MyArticle = () => {
 
   useEffect(() => {
     // {limit_num: 20, start_num: pageId ? (pageId - 1) * 20 : 0,},
-    postMe(user.token)
+    postHot({ minLikes: 3 }, user.token)
       .then((response) => {
         setPosts(response.data);
       })
@@ -26,14 +26,14 @@ const MyArticle = () => {
   return (
     <section>
       <Box w="778px" h="61px" p="15px" mb="5px" border="1px" borderColor="#e3e3e3">
-        <h1>내가 쓴 글</h1>
+        <h1>HOT 게시판</h1>
       </Box>
 
       <VStack w="778px" border="1px" borderColor="#e3e3e3" spacing="0">
         {Posts && Posts.length > 0 ? (
           Posts.map((post) => <PostItem key={post.id} boardId={post.board_id} post={post} />)
         ) : (
-          <div className="boardcontent-nomore">첫 글을 작성해 보세요!.</div>
+          <div className="boardcontent-nomore">더 이상 글이 없습니다.</div>
         )}
       </VStack>
 
@@ -64,4 +64,4 @@ const MyArticle = () => {
   );
 };
 
-export default MyArticle;
+export default HotArticle;

@@ -17,6 +17,7 @@ const PostList = ({ boardId, pageId }) => {
     })
       .then((response) => {
         setPosts(response.data);
+        console.log(response.data);
       })
       .catch((e) => console.log(e));
   }, [boardId, pageId]);

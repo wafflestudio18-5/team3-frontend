@@ -1,9 +1,12 @@
 /* GLOBAL */
 
 body {
-  font-family: '맑은 고딕', 돋움, tahoma !important;
-  /* font-family: nanumsquare !important; */
+  font-family: '맑은 고딕', 돋움, tahoma;
   letter-spacing: -0.5px !important;
+}
+
+.nanum {
+  font-family: nanumsquare !important;
 }
 
 a {

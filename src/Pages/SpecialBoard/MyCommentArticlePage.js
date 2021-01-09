@@ -1,10 +1,10 @@
 import React from 'react';
 
-import NavBar from '../Components/NavBar/NavBar';
-import Submenu from '../Components/Submenu/Submenu';
-import MyCommentArticle from '../Components/BoardContent/MyCommentArticle';
+import NavBar from '../../Components/NavBar/NavBar';
+import Submenu from '../../Components/Submenu/Submenu';
+import MyCommentArticle from '../../Components/BoardContent/MyCommentArticle';
 
-import SubBoard from '../Components/SubBoard/SubBoard';
+import SubBoard from '../../Components/SubBoard/SubBoard';
 
 const MyCommentArticlePage = () => {
   return (

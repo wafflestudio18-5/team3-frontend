@@ -1,10 +1,10 @@
 import React from 'react';
 
-import NavBar from '../Components/NavBar/NavBar';
-import Submenu from '../Components/Submenu/Submenu';
-import MyArticle from '../Components/BoardContent/MyArticle';
+import NavBar from '../../Components/NavBar/NavBar';
+import Submenu from '../../Components/Submenu/Submenu';
+import MyArticle from '../../Components/BoardContent/MyArticle';
 
-import SubBoard from '../Components/SubBoard/SubBoard';
+import SubBoard from '../../Components/SubBoard/SubBoard';
 
 const MyArticlePage = () => {
   return (

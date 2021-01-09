@@ -21,6 +21,8 @@ function App() {
         path={routes.mycommentarticle.path}
         component={routes.mycommentarticle.component}
       />
+      <Route exact path={routes.hotarticle.path} component={routes.hotarticle.component} />
+      <Route exact path={routes.bestarticle.path} component={routes.bestarticle.component} />
 
       <Route exact path={routes.post.path} component={routes.post.component} />
       <Route exact path={routes.boardPage.path} component={routes.boardPage.component} />

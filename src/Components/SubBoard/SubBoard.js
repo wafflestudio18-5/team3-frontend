@@ -11,7 +11,7 @@ function SubBoard() {
   const [Hot, setHot] = useState();
 
   useEffect(() => {
-    postHot({ minLikes: 1 }, user.token)
+    postHot({ minLikes: 3 }, user.token)
       .then((response) => setHot(response.data.slice(-4)))
       .catch((err) => console.log(err));
   }, [user.token]);
@@ -25,7 +25,7 @@ function SubBoard() {
         {Hot
           ? Hot.map((post) => (
               <Link href={'/' + post.board_id + '/v/' + post.id} key={post.id}>
-                <Box w="100%" h="38px" p="10px" borderBottom="1px" borderColor="#e3e3e3">
+                <Box w="100%" h="38px" p="10px" borderTop="1px" borderColor="#e3e3e3">
                   <span className="gray14">{post.title}</span>
                   <time className="boardlist-time-right">{timePassed(post.created_at)}</time>
                 </Box>
