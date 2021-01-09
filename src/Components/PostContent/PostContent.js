@@ -11,14 +11,27 @@ import timePassed from '../../helpers/functions/time';
 import img_user from '../../Images/user.png';
 import './PostContent.css';
 
+const defaultBoard = {
+  created_at: '',
+  user_id: 0,
+  content: '',
+  numLikes: 0,
+  numComments: 0,
+  numScraps: 0,
+  title: '',
+};
+
 const PostContent = () => {
   const { user } = useLoginContext();
   const { boardId, postId } = useParams();
 
-  const [Board, setBoard] = useState();
+  const [Board, setBoard] = useState(defaultBoard);
   const [Post, setPost] = useState();
 
+  const [commentOn, setCommentOn] = useState(false);
+
   useEffect(() => {
+    setCommentOn(false);
     boardList().then((response) => {
       const board = response.data.find((board) => board.id === +boardId);
       setBoard(board);
@@ -27,7 +40,7 @@ const PostContent = () => {
     postInfo(postId)
       .then((response) => setPost(response.data))
       .catch((err) => console.log(err));
-  }, [boardId, postId]);
+  }, [boardId, postId, commentOn]);
 
   const [Comment, setComment] = useState({
     post: postId,
@@ -51,6 +64,7 @@ const PostContent = () => {
     if (Comment.content === '') return window.alert('내용을 입력해 주세요.');
     commentWrite(Comment, user.token);
     setComment({ ...Comment, content: '' });
+    setCommentOn(true);
   };
 
   return (
@@ -82,7 +96,7 @@ const PostContent = () => {
         </>
       ) : null}
 
-      <CommentList postId={postId} />
+      <CommentList postId={postId} newComment={commentOn} />
 
       <div className="postcontent-form">
         <input
