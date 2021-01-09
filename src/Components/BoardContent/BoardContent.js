@@ -18,6 +18,7 @@ const BoardContent = () => {
   const [Board, setBoard] = useState();
 
   const [WritePost, setWritePost] = useState(false);
+  const [postOn, setPostOn] = useState(false);
   const [Post, setPost] = useState({
     board: boardId,
     title: '',
@@ -31,7 +32,8 @@ const BoardContent = () => {
       const board = response.data.find((board) => board.id === +boardId);
       setBoard(board);
     });
-  }, [boardId]);
+    setPostOn(false);
+  }, [boardId, postOn]);
 
   const onClickWrite = () => {
     setWritePost(true);
@@ -58,6 +60,7 @@ const BoardContent = () => {
     if (Post.content === '') return window.alert('내용을 입력해 주세요.');
     postWrite(Post, user.token);
     setPost({ ...Post, title: '', content: '' });
+    setPostOn(true);
     setWritePost(false);
   };
 
@@ -100,7 +103,7 @@ const BoardContent = () => {
           새 글을 작성해주세요!
         </button>
       )}
-      <PostList boardId={boardId} pageId={pageId ? pageId : 1} />
+      <PostList boardId={boardId} pageId={pageId ? pageId : 1} listUpdate={postOn} />
     </section>
   );
 };

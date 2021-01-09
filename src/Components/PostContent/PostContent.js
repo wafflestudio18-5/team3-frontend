@@ -187,7 +187,7 @@ const PostContent = () => {
             </Box>
           ) : null}
 
-          <CommentList postId={postId} />
+          <CommentList postId={postId} newComment={commentOn} />
           <div className="postcontent-form">
             <input
               className="postcontent-comment"
