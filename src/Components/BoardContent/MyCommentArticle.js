@@ -13,22 +13,29 @@ const MyCommentArticle = () => {
   // const { pageId } = useParams();
   // const history = useHistory();
 
-  const [Posts, setPosts] = useState([]);
+  const [Posts, setPosts] = useState();
 
   useEffect(() => {
+    if (!user.token) return;
     commentMe(user.token)
       .then((response) => {
-        let posts = [];
-        console.log(response.data);
+        let postids = [];
+
         response.data.forEach((comment) => {
-          postInfo(comment.post)
-            .then((res) => posts.push(res.data))
-            .catch((e) => console.log(e.response));
+          if (!postids.includes(comment.post)) {
+            postids.push(comment.post);
+            postInfo(comment.post)
+              .then((res) => {
+                setPosts((posts) => [...posts, res.data]);
+              })
+              .catch((e) => console.log(e.response));
+          }
         });
-        setPosts(posts);
       })
       .catch((e) => console.log(e.response));
   }, [user.token]);
+
+  console.log(Posts);
 
   return (
     <section>
@@ -40,7 +47,7 @@ const MyCommentArticle = () => {
         {Posts && Posts.length > 0 ? (
           Posts.map((post) => <PostItem key={post.id} boardId={post.board_id} post={post} />)
         ) : (
-          <div className="boardcontent-nomore">첫 댓글을 남겨보세요!.</div>
+          <div className="boardcontent-nomore">첫 댓글을 남겨보세요!</div>
         )}
       </VStack>
 
