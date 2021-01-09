@@ -206,30 +206,27 @@ const PostContent = () => {
               <button className="postcontent-submit" onClick={onClickSubmit} />
             </div>
           </div>
+          <CommentList postId={postId} newComment={commentOn} />
+          <div className="postcontent-form">
+            <input
+              className="postcontent-comment"
+              name="content"
+              value={Comment.content}
+              type="text"
+              maxLength="300"
+              placeholder="댓글을 입력하세요."
+              onChange={onChangeInput}
+            />
+            <div className="postcontent-option">
+              <button
+                className={Comment.is_anonym ? 'postcontent-anon-on' : 'postcontent-anon-off'}
+                onClick={onClickAnon}
+              />
+              <button className="postcontent-submit" onClick={onClickSubmit} />
+            </div>
+          </div>
         </>
       )}
-      ) : null}
-
-      <CommentList postId={postId} newComment={commentOn} />
-
-      <div className="postcontent-form">
-        <input
-          className="postcontent-comment"
-          name="content"
-          value={Comment.content}
-          type="text"
-          maxLength="300"
-          placeholder="댓글을 입력하세요."
-          onChange={onChangeInput}
-        />
-        <div className="postcontent-option">
-          <button
-            className={Comment.is_anonym ? 'postcontent-anon-on' : 'postcontent-anon-off'}
-            onClick={onClickAnon}
-          />
-          <button className="postcontent-submit" onClick={onClickSubmit} />
-        </div>
-      </div>
     </section>
   );
 };
