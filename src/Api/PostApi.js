@@ -21,6 +21,12 @@ const postLike = async (post_id) => {
   return response;
 };
 
+const postUpdate = async (post_id, body, token) => {
+  const config = { headers: { Authorization: `Token ${token}` } };
+  const response = await axios.put(`/post/${post_id}/update/`, body, config);
+  return response;
+};
+
 const postDelete = async (post_id, token) => {
   const config = { headers: { Authorization: `Token ${token}` } };
   const response = await axios.delete(`/post/${post_id}/delete/`, config);
@@ -38,4 +44,4 @@ const postHot = async (params) => {
   return response;
 };
 
-export { postList, postInfo, postWrite, postLike, postDelete, postMe, postHot };
+export { postList, postInfo, postWrite, postLike, postUpdate, postDelete, postMe, postHot };
