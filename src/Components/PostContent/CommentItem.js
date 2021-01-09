@@ -7,7 +7,7 @@ import ReplyItem from './ReplyItem';
 import timePassed from '../../helpers/functions/time';
 import img_user from '../../Images/user.png';
 
-const CommentItem = ({ comment }) => {
+const CommentItem = ({ comment, onChange }) => {
   const { user } = useLoginContext();
 
   const [WriteReply, setWriteReply] = useState(false);
@@ -27,14 +27,21 @@ const CommentItem = ({ comment }) => {
     if (window.confirm('이 댓글에 공감하십니까?')) {
       commentLike(comment.id, user.token).catch((err) => console.log(err));
     }
+    onChange();
   };
 
-  // const onClickModify = () => {};
-
-  const onClickDelete = () => {
+  const onClickDelete = (id) => {
     if (window.confirm('이 댓글을 삭제하시겠습니까?')) {
-      commentDelete(comment.id, user.token).catch((err) => console.log(err));
+      commentDelete(id, user.token).catch((err) => console.log(err));
+      onChange();
     }
+  };
+
+  const onClickLikeR = (replyId) => {
+    if (window.confirm('이 댓글에 공감하십니까?')) {
+      commentLike(replyId, user.token);
+    }
+    onChange();
   };
 
   const onChangeInput = (event) => {
@@ -53,32 +60,42 @@ const CommentItem = ({ comment }) => {
     if (Reply.content === '') return window.alert('내용을 입력해 주세요.');
     commentWrite(Reply, user.token);
     setReply({ ...Reply, content: '' });
+    onChange();
   };
 
   return (
     <Box w="100%" borderBottom="1px" borderColor="#e3e3e3">
       <Box w="100%" p="15px 15px 4px 15px">
-        <img className="img-user-s" src={img_user} alt="user" />
-        <span className={comment.user_id === user.id ? 'cyan12b' : 'black12b'}>
-          {comment.is_anonym ? '익명' : comment.nickname}
-        </span>
-        <div className="postcontent-status">
-          <button onClick={onClickReply}>대댓글</button>
-          <button onClick={onClickLike}>공감</button>
-          {comment.user_id === user.id ? (
-            <>
-              {/* <button onClick={onClickModify}>수정</button> */}
-              <button onClick={onClickDelete}>삭제</button>
-            </>
-          ) : null}
-        </div>
-        <div className="gray14">{comment.content}</div>
-        <time className="time12">{timePassed(comment.created_at)}</time>
-        {comment.numLikes > 0 ? (
-          <button className="stat-like" onClick={onClickLike}>
-            {comment.numLikes}
-          </button>
-        ) : null}
+        {!comment.deleted ? (
+          <>
+            <img className="img-user-s" src={img_user} alt="user" />
+            <span className={comment.user_id === user.id ? 'cyan12b' : 'black12b'}>
+              {comment.is_anonym ? '익명' : comment.nickname}
+            </span>
+            <div className="postcontent-status">
+              <button onClick={onClickReply}>대댓글</button>
+              <button onClick={onClickLike}>공감</button>
+              {comment.user_id === user.id ? (
+                <>
+                  <button onClick={() => onClickDelete(comment.id)}>삭제</button>
+                </>
+              ) : null}
+            </div>
+            <div className="gray14">{comment.content}</div>
+            <time className="time12">{timePassed(comment.created_at)}</time>
+            {comment.numLikes > 0 ? (
+              <button className="stat-like" onClick={onClickLike}>
+                {comment.numLikes}
+              </button>
+            ) : null}
+          </>
+        ) : (
+          <>
+            <img className="img-user-s" src={img_user} alt="user" />
+            <span className="gray-description-12">(삭제)</span>
+            <div className="gray13 margin-bottom-7">삭제된 댓글입니다.</div>
+          </>
+        )}
       </Box>
 
       {comment.reply && comment.reply.length > 0 ? (
@@ -92,7 +109,12 @@ const CommentItem = ({ comment }) => {
           spacing="0"
         >
           {comment.reply.map((reply) => (
-            <ReplyItem key={reply.id} reply={reply} />
+            <ReplyItem
+              key={reply.id}
+              reply={reply}
+              onClickLike={onClickLikeR}
+              onClickDelete={onClickDelete}
+            />
           ))}
         </VStack>
       ) : null}
