@@ -18,7 +18,9 @@ const ReplyItem = ({ reply }) => {
   return (
     <Box w="100%" p="15px 15px 4px 15px" borderBottom="1px" borderColor="#e3e3e3">
       <img className="img-user-s" src={img_user} alt="user" />
-      <span className="black12b"> {reply.is_anonym ? '익명' : reply.nickname}</span>
+      <span className={reply.user_id === user.id ? 'cyan12b' : 'black12b'}>
+        {reply.is_anonym ? '익명' : reply.nickname}
+      </span>
       <div className="postcontent-status">
         <button onClick={onClickLike}>공감</button>
       </div>

@@ -137,6 +137,17 @@ h2 {
   text-overflow: ellipsis;
 }
 
+.cyan12b {
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 15px;
+  color: #0ca5af;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .dgray18b {
   margin-bottom: 5px;
   line-height: 25px;

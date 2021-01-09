@@ -59,7 +59,9 @@ const CommentItem = ({ comment }) => {
     <Box w="100%" borderBottom="1px" borderColor="#e3e3e3">
       <Box w="100%" p="15px 15px 4px 15px">
         <img className="img-user-s" src={img_user} alt="user" />
-        <span className="black12b"> {comment.is_anonym ? '익명' : comment.nickname}</span>
+        <span className={comment.user_id === user.id ? 'cyan12b' : 'black12b'}>
+          {comment.is_anonym ? '익명' : comment.nickname}
+        </span>
         <div className="postcontent-status">
           <button onClick={onClickReply}>대댓글</button>
           <button onClick={onClickLike}>공감</button>
