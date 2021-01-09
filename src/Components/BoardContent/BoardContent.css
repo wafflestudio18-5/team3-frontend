@@ -109,18 +109,28 @@
   font-weight: bold;
   color: #c62917;
   line-height: 35px;
+
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position-x: 12px;
+  background-position-y: 50%;
 }
 
 .boardcontent-button-first {
   float: left;
+  background-image: url(/src/Images/page_first.png);
 }
 
 .boardcontent-button-prev {
   float: left;
+  background-image: url(/src/Images/page_prev.png);
 }
 
 .boardcontent-button-next {
+  padding: 0 25px 0 10px;
   float: right;
+  background-image: url(/src/Images/page_next.png);
+  background-position-x: calc(100% - 10px);
 }
 
 .boardcontent-nomore {

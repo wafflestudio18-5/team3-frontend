@@ -12,8 +12,8 @@ const PostList = ({ boardId, pageId, listUpdate }) => {
   useEffect(() => {
     postList({
       board: +boardId,
-      limit_num: 20,
-      start_num: (pageId - 1) * 20,
+      limit_num: 10,
+      start_num: (pageId - 1) * 10,
     })
       .then((response) => {
         setPosts(response.data);

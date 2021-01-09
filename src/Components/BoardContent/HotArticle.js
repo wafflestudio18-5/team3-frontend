@@ -25,8 +25,9 @@ const HotArticle = () => {
 
   return (
     <section>
-      <Box w="778px" h="61px" p="15px" mb="5px" border="1px" borderColor="#e3e3e3">
+      <Box w="778px" h="80px" p="15px" mb="5px" border="1px" borderColor="#e3e3e3">
         <h1>HOT 게시판</h1>
+        <div className="gray12">공감 1개를 받으면 HOT 게시물로 선정됩니다.</div>
       </Box>
 
       <VStack w="778px" border="1px" borderColor="#e3e3e3" spacing="0">
